@@ -74,3 +74,10 @@ footer .footer-bottom{border-top-color:rgba(255,255,255,.2)}
 
 /* Keep the oversized footer wordmark fully visible on narrow screens. */
 @media(max-width:600px){.footer-word{width:100%;margin:5rem 0 3rem;font-size:18vw;line-height:.75;letter-spacing:-.085em;text-align:center}}
+
+/* Expanded StockSnap image library and page-specific photo rotation. */
+.image-flatlay{background-image:url('https://cdn.stocksnap.io/img-thumbs/960w/flatlay-plate_WZRTRRU0M7.jpg');background-color:#a9b68c}
+.image-waffles{background-image:url('https://cdn.stocksnap.io/img-thumbs/960w/waffles-breakfast_P3NGIKBIFL.jpg');background-color:#bd8154}
+.story-main .story-image,.archive-card:nth-child(2) .archive-image,.single-hero .single-image{background-image:url('https://cdn.stocksnap.io/img-thumbs/960w/waffles-breakfast_P3NGIKBIFL.jpg');background-color:#bd8154}
+.archive-card:nth-child(5) .archive-image,.page-featured>div,.entry-content .content-image,.full-page .full-image{background-image:url('https://cdn.stocksnap.io/img-thumbs/960w/flatlay-plate_WZRTRRU0M7.jpg');background-color:#a9b68c}
+.split-statement>div:first-child{background-image:url('https://cdn.stocksnap.io/img-thumbs/960w/waffles-breakfast_P3NGIKBIFL.jpg');background-color:#bd8154}
