@@ -2,3 +2,5 @@ breakfast-eggs.jpg, Travel Adventures / StockSnap, CC0 (Public Domain Dedication
 berry-pancakes.jpg, Elliott Chau / StockSnap, CC0 (Public Domain Dedication), https://stocksnap.io/photo/food-foodphotography-GNAFKFNM2R
 breakfast-eggs.jpg, Travel Adventures / StockSnap, CC0 (Public Domain Dedication), https://stocksnap.io/photo/breakfast-eggs-4UP8O6XKXQ
 mexican-tacos.jpg, Tim Sullivan / StockSnap, CC0 (Public Domain Dedication), https://stocksnap.io/photo/mexican-tacos-UPG7YS3LGW
+dm-sans-400.ttf / dm-sans-500.ttf / dm-sans-600.ttf / dm-sans-700.ttf, Colophon Foundry / Google Fonts, SIL Open Font License 1.1, https://fonts.google.com/specimen/DM+Sans
+league-spartan-700.ttf / league-spartan-800.ttf, The League of Moveable Type / Google Fonts, SIL Open Font License 1.1, https://fonts.google.com/specimen/League+Spartan

@@ -67,3 +67,7 @@ footer .footer-bottom{border-top-color:rgba(255,255,255,.2)}
 /* Optional recipe block appended to a long-form single article. */
 .recipe-extension{background:#fff;border-top:1px solid rgba(23,23,20,.14)}.recipe-extension>header{padding:8rem 8vw 4rem;background:var(--cream)}.recipe-extension>header h2{max-width:1100px;font:800 clamp(4.5rem,9vw,9rem)/.78 var(--display);letter-spacing:-.065em;text-transform:uppercase;margin:0}.recipe-extension>header>p:not(.eyebrow){font-size:1.2rem}.recipe-facts{display:flex;flex-wrap:wrap;gap:2rem;margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(23,23,20,.14);font-size:.7rem;font-weight:800;text-transform:uppercase}.recipe-extension .recipe-body{padding-top:6rem}.recipe-extension .ingredients h2{font-size:clamp(3rem,5vw,5rem)}
 @media(max-width:600px){.recipe-extension>header{padding:5rem 1rem 3rem}.recipe-extension>header h2{font-size:4rem}.recipe-facts{gap:1rem}}
+
+/* Optional featured image for standard WordPress pages. */
+.page-featured{margin:0;padding:1rem 4vw 0;background:#fff}.page-featured>div{width:100%;height:min(72vh,850px);min-height:480px;background-size:cover;background-position:center}.page-featured figcaption{padding:.8rem 0;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(23,23,20,.14)}
+@media(max-width:600px){.page-featured{padding:1rem 1rem 0}.page-featured>div{height:55vh;min-height:360px}}
