@@ -71,3 +71,6 @@ footer .footer-bottom{border-top-color:rgba(255,255,255,.2)}
 /* Optional featured image for standard WordPress pages. */
 .page-featured{margin:0;padding:1rem 4vw 0;background:#fff}.page-featured>div{width:100%;height:min(72vh,850px);min-height:480px;background-size:cover;background-position:center}.page-featured figcaption{padding:.8rem 0;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid rgba(23,23,20,.14)}
 @media(max-width:600px){.page-featured{padding:1rem 1rem 0}.page-featured>div{height:55vh;min-height:360px}}
+
+/* Keep the oversized footer wordmark fully visible on narrow screens. */
+@media(max-width:600px){.footer-word{width:100%;margin:5rem 0 3rem;font-size:18vw;line-height:.75;letter-spacing:-.085em;text-align:center}}
