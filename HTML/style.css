@@ -90,3 +90,6 @@ footer .footer-bottom{border-top-color:rgba(255,255,255,.2)}
 .order-art,.single-image,.related-image,.full-image,.split-image{position:relative;overflow:hidden}
 .page-featured>img{display:block;width:100%;height:min(72vh,850px);min-height:480px;object-fit:cover}
 @media(max-width:600px){.page-featured>img{height:55vh;min-height:360px}}
+
+/* Keep the single-post badge inside its clipped featured-image frame. */
+.single-image .hero-sticker{left:2rem}
