@@ -4,6 +4,7 @@
  * Slug: hapag/cover-statement
  * Categories: hapag
  * Viewport width: 1400
+ * Block Types: core/post-content
  * Description: Full-bleed photograph with a large overlay line.
  */
 $hapag_uri       = get_template_directory_uri();

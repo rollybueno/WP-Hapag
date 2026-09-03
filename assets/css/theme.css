@@ -855,6 +855,22 @@
 	text-shadow: 0 2px 25px rgba(0, 0, 0, 0.4);
 }
 
+.hapag-full-width .wp-block-post-content {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.hapag-full-width .wp-block-post-content > .alignfull {
+	margin-right: 0;
+	margin-left: 0;
+	max-width: none;
+	width: 100%;
+}
+
+.hapag-full-width .wp-block-post-content :is(h1, h2, h3, .wp-block-heading) {
+	margin-block-start: 0;
+}
+
 .hapag-journal-split {
 	padding: 8rem 4vw;
 	background: var(--wp--preset--color--white);
