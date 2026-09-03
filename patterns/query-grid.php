@@ -51,6 +51,7 @@
 				<!-- /wp:group -->
 
 				<!-- wp:post-title {"isLink":true,"level":3} /-->
+				<!-- wp:post-excerpt {"moreText":"","excerptLength":16,"showMoreOnNewLine":false} /-->
 			</div>
 			<!-- /wp:group -->
 		<!-- /wp:post-template -->
