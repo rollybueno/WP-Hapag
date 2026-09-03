@@ -744,6 +744,13 @@
 	border-top: 1px solid var(--wp--custom--line-soft);
 }
 
+.hapag-entry-content .hapag-recipe,
+.hapag-content-rail .hapag-recipe {
+	width: 100%;
+	max-width: 100%;
+	margin-inline: 0;
+}
+
 .hapag-recipe .hapag-eyebrow {
 	margin: 0;
 	font-size: var(--wp--preset--font-size--eyebrow);

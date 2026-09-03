@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.4' );
+define( 'HAPAG_VERSION', '0.1.5' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -94,6 +94,101 @@ function hapag_render_card_media( $content, $block ) {
 add_filter( 'render_block_core/group', 'hapag_render_card_media', 10, 2 );
 
 /**
+ * Whether a parsed block has a given class name.
+ *
+ * @param array  $block Parsed block.
+ * @param string $class Class to match.
+ */
+function hapag_block_has_class( $block, $class ) {
+	$classes = preg_split( '/\s+/', isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '' );
+	return in_array( $class, is_array( $classes ) ? $classes : array(), true );
+}
+
+/**
+ * Collects recipe groups from the current post so they can render full-bleed.
+ *
+ * @return array<int, array>
+ */
+function hapag_post_recipe_blocks() {
+	$post_id = get_the_ID();
+	if ( ! $post_id ) {
+		return array();
+	}
+
+	$recipes = array();
+	$walk    = static function ( $blocks ) use ( &$walk, &$recipes ) {
+		foreach ( $blocks as $block ) {
+			if ( hapag_block_has_class( $block, 'hapag-recipe' ) ) {
+				$recipes[] = $block;
+				continue;
+			}
+
+			if ( ! empty( $block['innerBlocks'] ) ) {
+				$walk( $block['innerBlocks'] );
+			}
+		}
+	};
+
+	$walk( parse_blocks( (string) get_post_field( 'post_content', $post_id ) ) );
+
+	return $recipes;
+}
+
+/**
+ * Drops recipe groups from Post Content so the article column stays 760px.
+ */
+function hapag_mark_post_content_render( $pre_render, $block ) {
+	if ( ( $block['blockName'] ?? '' ) === 'core/post-content' ) {
+		$GLOBALS['hapag_in_post_content'] = true;
+	}
+
+	return $pre_render;
+}
+add_filter( 'pre_render_block', 'hapag_mark_post_content_render', 5, 2 );
+
+function hapag_unmark_post_content_render( $content ) {
+	$GLOBALS['hapag_in_post_content'] = false;
+	return $content;
+}
+add_filter( 'render_block_core/post-content', 'hapag_unmark_post_content_render' );
+
+function hapag_omit_in_content_recipe( $pre_render, $block ) {
+	if ( empty( $GLOBALS['hapag_in_post_content'] ) || '' !== $pre_render ) {
+		return $pre_render;
+	}
+
+	if ( hapag_block_has_class( $block, 'hapag-recipe' ) ) {
+		return '';
+	}
+
+	return $pre_render;
+}
+add_filter( 'pre_render_block', 'hapag_omit_in_content_recipe', 10, 2 );
+
+/**
+ * Renders a post’s recipe full-bleed after the article, or the kit pattern.
+ */
+function hapag_render_recipe_slot( $content, $block ) {
+	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+	if ( ! $content || false === strpos( $class, 'hapag-recipe-slot' ) ) {
+		return $content;
+	}
+
+	$recipes = hapag_post_recipe_blocks();
+	if ( $recipes ) {
+		$html = '';
+		foreach ( $recipes as $recipe ) {
+			$html .= render_block( $recipe );
+		}
+		return $html;
+	}
+
+	$fallback = do_blocks( '<!-- wp:pattern {"slug":"hapag/recipe"} /-->' );
+	return $fallback ? $fallback : $content;
+}
+add_filter( 'render_block_core/group', 'hapag_render_recipe_slot', 10, 2 );
+
+/**
  * Collects level-2 headings from the current post for the contents rail.
  *
  * @return array<int, array{text:string,anchor:string}>
@@ -112,6 +207,10 @@ function hapag_post_heading_links() {
 	$links = array();
 	$walk  = static function ( $blocks ) use ( &$walk, &$links ) {
 		foreach ( $blocks as $block ) {
+			if ( hapag_block_has_class( $block, 'hapag-recipe' ) ) {
+				continue;
+			}
+
 			$level = (int) ( $block['attrs']['level'] ?? 2 );
 			if ( ( $block['blockName'] ?? '' ) === 'core/heading' && ( $level === 2 || $level === 3 ) ) {
 				$text = trim( wp_strip_all_tags( $block['innerHTML'] ) );
