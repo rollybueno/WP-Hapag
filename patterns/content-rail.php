@@ -9,13 +9,18 @@
 $hapag_headings  = hapag_post_heading_links();
 $hapag_permalink = get_permalink();
 $hapag_share     = $hapag_permalink ? rawurlencode( $hapag_permalink ) : '';
+$hapag_is_page   = hapag_is_page_context();
+$hapag_rail_style = $hapag_is_page ? 'is-style-page' : 'is-style-article';
+$hapag_rail_label = $hapag_is_page
+	? __( 'On this page', 'hapag' )
+	: __( 'In this story', 'hapag' );
 ?>
-<!-- wp:group {"tagName":"section","metadata":{"name":"Content rail"},"className":"hapag-content-rail is-style-article","align":"full","backgroundColor":"white","layout":{"type":"default"}} -->
-<section class="wp-block-group alignfull hapag-content-rail is-style-article has-white-background-color has-background">
+<!-- wp:group {"tagName":"section","metadata":{"name":"Content rail"},"className":"hapag-content-rail <?php echo esc_attr( $hapag_rail_style ); ?>","align":"full","backgroundColor":"white","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull hapag-content-rail <?php echo esc_attr( $hapag_rail_style ); ?> has-white-background-color has-background">
 	<!-- wp:group {"tagName":"aside","className":"hapag-content-rail-nav","layout":{"type":"default"}} -->
 	<aside class="wp-block-group hapag-content-rail-nav">
 		<!-- wp:paragraph {"className":"hapag-eyebrow","fontSize":"eyebrow"} -->
-		<p class="hapag-eyebrow has-eyebrow-font-size"><?php esc_html_e( 'In this story', 'hapag' ); ?></p>
+		<p class="hapag-eyebrow has-eyebrow-font-size"><?php echo esc_html( $hapag_rail_label ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<?php foreach ( $hapag_headings as $hapag_heading ) : ?>
@@ -24,6 +29,7 @@ $hapag_share     = $hapag_permalink ? rawurlencode( $hapag_permalink ) : '';
 			<!-- /wp:paragraph -->
 		<?php endforeach; ?>
 
+		<?php if ( ! $hapag_is_page ) : ?>
 		<!-- wp:group {"className":"hapag-share-links","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
 		<div class="wp-block-group hapag-share-links">
 			<!-- wp:paragraph -->
@@ -45,6 +51,7 @@ $hapag_share     = $hapag_permalink ? rawurlencode( $hapag_permalink ) : '';
 			<?php endif; ?>
 		</div>
 		<!-- /wp:group -->
+		<?php endif; ?>
 	</aside>
 	<!-- /wp:group -->
 

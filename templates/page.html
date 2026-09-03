@@ -1,0 +1,74 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","metadata":{"name":"Page"},"className":"hapag-page","align":"full","layout":{"type":"default"}} -->
+<main class="wp-block-group alignfull hapag-page">
+	<!-- wp:group {"tagName":"header","metadata":{"name":"Display hero"},"className":"hapag-display-hero is-style-page","align":"full","layout":{"type":"default"}} -->
+	<header class="wp-block-group alignfull hapag-display-hero is-style-page">
+		<!-- wp:paragraph {"className":"hapag-eyebrow","fontSize":"eyebrow"} -->
+		<p class="hapag-eyebrow has-eyebrow-font-size">Pull up a chair</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:post-title {"level":1} /-->
+	</header>
+	<!-- /wp:group -->
+
+	<!-- wp:post-featured-image {"className":"hapag-page-featured"} /-->
+
+	<!-- wp:pattern {"slug":"hapag/content-rail"} /-->
+
+	<!-- wp:comments {"align":"full","className":"hapag-comments"} -->
+	<div class="wp-block-comments alignfull hapag-comments">
+		<!-- wp:group {"className":"hapag-comments-wrap","layout":{"type":"default"}} -->
+		<div class="wp-block-group hapag-comments-wrap">
+			<!-- wp:paragraph {"className":"hapag-eyebrow","fontSize":"eyebrow"} -->
+			<p class="hapag-eyebrow has-eyebrow-font-size">The conversation</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:comments-title {"showPostTitle":false} /-->
+
+			<!-- wp:comment-template -->
+				<!-- wp:group {"className":"hapag-comment","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"top"}} -->
+				<div class="wp-block-group hapag-comment">
+					<!-- wp:avatar {"size":52} /-->
+
+					<!-- wp:group {"className":"hapag-comment-body","layout":{"type":"default"}} -->
+					<div class="wp-block-group hapag-comment-body">
+						<!-- wp:group {"className":"hapag-comment-meta","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+						<div class="wp-block-group hapag-comment-meta">
+							<!-- wp:comment-author-name /-->
+
+							<!-- wp:comment-date /-->
+						</div>
+						<!-- /wp:group -->
+
+						<!-- wp:comment-content /-->
+
+						<!-- wp:comment-reply-link /-->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:comment-template -->
+
+			<!-- wp:comments-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+				<!-- wp:comments-pagination-previous /-->
+				<!-- wp:comments-pagination-next /-->
+			<!-- /wp:comments-pagination -->
+
+			<!-- wp:group {"className":"hapag-comment-respond","layout":{"type":"default"}} -->
+			<div class="wp-block-group hapag-comment-respond">
+				<!-- wp:paragraph {"className":"hapag-eyebrow","fontSize":"eyebrow"} -->
+				<p class="hapag-eyebrow has-eyebrow-font-size">Add to the table</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:post-comments-form /-->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:comments -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

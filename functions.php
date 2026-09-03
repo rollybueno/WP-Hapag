@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.11' );
+define( 'HAPAG_VERSION', '0.1.12' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -108,6 +108,117 @@ function hapag_block_has_class( $block, $class ) {
 	$html = isset( $block['innerHTML'] ) ? $block['innerHTML'] : '';
 	return (bool) preg_match( '/\b' . preg_quote( $class, '/' ) . '\b/', $html );
 }
+
+/**
+ * Whether the current render is a page (front or editor canvas).
+ */
+function hapag_is_page_context() {
+	if ( is_page() ) {
+		return true;
+	}
+
+	$post_id = get_the_ID();
+	return $post_id && 'page' === get_post_type( $post_id );
+}
+
+/**
+ * Appends the featured-image caption under the page hero figure.
+ */
+function hapag_render_page_featured( $content, $block ) {
+	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+	if ( ! $content || false === strpos( $class, 'hapag-page-featured' ) ) {
+		return $content;
+	}
+
+	if ( ! has_post_thumbnail() ) {
+		return '';
+	}
+
+	$caption = wp_get_attachment_caption( (int) get_post_thumbnail_id() );
+	if ( ! is_string( $caption ) || '' === trim( $caption ) || false !== strpos( $content, '</figcaption>' ) ) {
+		return $content;
+	}
+
+	$figcaption = '<figcaption>' . esc_html( $caption ) . '</figcaption>';
+	$updated    = preg_replace( '/<\/figure>\s*$/', $figcaption . '</figure>', $content, 1 );
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'render_block_core/post-featured-image', 'hapag_render_page_featured', 10, 2 );
+
+/**
+ * Splits the last word of a page title so the hero can accent it.
+ */
+function hapag_render_page_title( $content, $block ) {
+	if ( ! hapag_is_page_context() || ! $content || false !== strpos( $content, '<em>' ) ) {
+		return $content;
+	}
+
+	$text  = trim( wp_strip_all_tags( $content ) );
+	$parts = preg_split( '/\s+/', $text );
+	if ( ! is_array( $parts ) || count( $parts ) < 2 ) {
+		return $content;
+	}
+
+	$last  = array_pop( $parts );
+	$first = implode( ' ', $parts );
+	$inner = esc_html( $first ) . '<br><em>' . esc_html( $last ) . '</em>';
+	$updated = preg_replace( '/>\s*' . preg_quote( $text, '/' ) . '\s*</', '>' . $inner . '<', $content, 1 );
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'render_block_core/post-title', 'hapag_render_page_title', 10, 2 );
+
+/**
+ * Uses the prototype comments wording on pages.
+ */
+function hapag_render_comments_title( $content ) {
+	if ( ! hapag_is_page_context() || ! $content ) {
+		return $content;
+	}
+
+	return strtr(
+		$content,
+		array(
+			'responses' => 'comments',
+			'response'  => 'comment',
+			'Responses' => 'Comments',
+			'Response'  => 'Comment',
+		)
+	);
+}
+add_filter( 'render_block_core/comments-title', 'hapag_render_comments_title' );
+
+/**
+ * Matches the page comment form copy to the prototype.
+ *
+ * @param array $defaults Comment form defaults.
+ */
+function hapag_comment_form_defaults( $defaults ) {
+	if ( ! hapag_is_page_context() ) {
+		return $defaults;
+	}
+
+	$defaults['title_reply']  = __( 'Leave a comment', 'hapag' );
+	$defaults['label_submit'] = __( 'Post comment →', 'hapag' );
+
+	return $defaults;
+}
+add_filter( 'comment_form_defaults', 'hapag_comment_form_defaults' );
+
+/**
+ * Drops the website field from page comments.
+ *
+ * @param array $fields Comment form fields.
+ */
+function hapag_comment_form_fields( $fields ) {
+	if ( hapag_is_page_context() ) {
+		unset( $fields['url'] );
+	}
+
+	return $fields;
+}
+add_filter( 'comment_form_default_fields', 'hapag_comment_form_fields' );
 
 /**
  * Collects recipe groups from the current post so they can render full-bleed.
