@@ -1,0 +1,20 @@
+/*
+Theme Name: Hapag
+Theme URI: https://github.com/rollybueno/wp-hapag
+Author: Rolly Bueno
+Author URI: https://github.com/rollybueno
+Description: A Filipino-inspired WordPress block theme for recipes, food creators, small businesses, and WooCommerce shops. Named for the dining table — a place for food, sharing, and gathering.
+Requires at least: 6.6
+Tested up to: 6.8
+Requires PHP: 7.4
+Version: 0.1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: hapag
+Tags: full-site-editing, block-styles, blog, e-commerce, food-and-drink, custom-colors, custom-logo, featured-images, threaded-comments, translation-ready
+*/
+
+/*
+ * Theme metadata only. Tokens live in theme.json.
+ * Composition layout that theme.json cannot express lives in assets/css/theme.css.
+ */

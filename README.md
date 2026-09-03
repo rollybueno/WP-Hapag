@@ -40,8 +40,13 @@ wp-content/
     └── hapag/
         ├── style.css
         ├── theme.json
+        ├── functions.php
         ├── templates/
         ├── parts/
+        ├── assets/
+        │   ├── fonts/
+        │   └── images/
+        ├── credits.txt
         └── ...
 ```
 
@@ -129,3 +134,5 @@ https://www.gnu.org/licenses/gpl-2.0.html
 ## Credits
 
 Hapag is inspired by Filipino food culture and the idea of the **hapag** — a table where food, stories, and people come together.
+
+Font and photography attribution is listed in `credits.txt`.

@@ -1,0 +1,37 @@
+Hapag theme credits
+==================
+
+Hapag is inspired by Filipino food culture and the idea of the hapag —
+a table where food, stories, and people come together.
+
+Fonts
+-----
+DM Sans (assets/fonts/dm-sans-400.ttf, dm-sans-500.ttf, dm-sans-600.ttf, dm-sans-700.ttf)
+Colophon Foundry / Google Fonts, SIL Open Font License 1.1
+https://fonts.google.com/specimen/DM+Sans
+
+League Spartan (assets/fonts/league-spartan-700.ttf, league-spartan-800.ttf)
+The League of Moveable Type / Google Fonts, SIL Open Font License 1.1
+https://fonts.google.com/specimen/League+Spartan
+
+Photography
+-----------
+breakfast-eggs.jpg — Travel Adventures / StockSnap, CC0
+https://stocksnap.io/photo/breakfast-eggs-4UP8O6XKXQ
+
+berry-pancakes.jpg — Elliott Chau / StockSnap, CC0
+https://stocksnap.io/photo/food-foodphotography-GNAFKFNM2R
+
+mexican-tacos.jpg — Tim Sullivan / StockSnap, CC0
+https://stocksnap.io/photo/mexican-tacos-UPG7YS3LGW
+
+flatlay-plate.jpg — Sarah Pflug / StockSnap, CC0
+https://stocksnap.io/photo/flatlay-plate-WZRTRRU0M7
+
+waffles-breakfast.jpg — Humphrey Muleba / StockSnap, CC0
+https://stocksnap.io/photo/waffles-breakfast-P3NGIKBIFL
+
+License
+-------
+Hapag is licensed under the GNU General Public License v2 or later.
+https://www.gnu.org/licenses/gpl-2.0.html
