@@ -15,6 +15,11 @@
 	text-transform: uppercase;
 	letter-spacing: 0.14em;
 	font-weight: 800;
+	margin: 0 0 var(--wp--preset--spacing--20);
+}
+
+.hapag-eyebrow + :is(h1, h2, .wp-block-heading, .wp-block-post-title) {
+	padding-block-start: 0.2em;
 }
 
 .hapag-display-hero em,
@@ -760,7 +765,6 @@
 }
 
 .hapag-recipe .hapag-eyebrow {
-	margin: 0;
 	font-size: var(--wp--preset--font-size--eyebrow);
 }
 
