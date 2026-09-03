@@ -32,12 +32,25 @@
 	<!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"namespace":"hapag/query-grid"} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"grid","columnCount":3}} -->
-			<!-- wp:group {"className":"hapag-card","style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"constrained"}} -->
+			<!-- wp:group {"className":"hapag-card","style":{"spacing":{"blockGap":"0","padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"layout":{"type":"default"}} -->
 			<div class="wp-block-group hapag-card">
-				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/5"} /-->
-				<!-- wp:post-terms {"term":"category"} /-->
+				<!-- wp:group {"className":"hapag-card-media","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"layout":{"type":"default"}} -->
+				<div class="wp-block-group hapag-card-media">
+					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/5"} /-->
+					<!-- wp:post-terms {"term":"category","className":"hapag-card-badge"} /-->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"hapag-card-meta","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+				<div class="wp-block-group hapag-card-meta">
+					<!-- wp:post-terms {"term":"category","className":"hapag-card-kicker"} /-->
+					<!-- wp:paragraph {"className":"hapag-card-rating"} -->
+					<p class="hapag-card-rating" aria-hidden="true">★★★★★</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+
 				<!-- wp:post-title {"isLink":true,"level":3} /-->
-				<!-- wp:post-excerpt {"moreText":""} /-->
 			</div>
 			<!-- /wp:group -->
 		<!-- /wp:post-template -->

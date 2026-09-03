@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.0' );
+define( 'HAPAG_VERSION', '0.1.1' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -67,3 +67,28 @@ function hapag_enqueue_styles() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'hapag_enqueue_styles' );
+
+/**
+ * Adds an optional cook-time pill on query-grid card media.
+ *
+ * Set the `hapag_cook_time` post meta (for example "25 min") to show it.
+ */
+function hapag_render_card_media( $content, $block ) {
+	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+	if ( ! $content || false === strpos( $class, 'hapag-card-media' ) ) {
+		return $content;
+	}
+
+	$time = get_post_meta( get_the_ID(), 'hapag_cook_time', true );
+	if ( ! is_string( $time ) || '' === trim( $time ) ) {
+		return $content;
+	}
+
+	$badge = sprintf(
+		'<span class="hapag-card-time">%s</span>',
+		esc_html( $time )
+	);
+
+	return preg_replace( '/<\/div>\s*$/', $badge . '</div>', $content, 1 );
+}
+add_filter( 'render_block_core/group', 'hapag_render_card_media', 10, 2 );
