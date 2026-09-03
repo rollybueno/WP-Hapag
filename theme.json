@@ -496,6 +496,13 @@
 			}
 		}
 	},
+	"customTemplates": [
+		{
+			"name": "full-width",
+			"postTypes": [ "page" ],
+			"title": "Full width"
+		}
+	],
 	"templateParts": [
 		{
 			"area": "header",

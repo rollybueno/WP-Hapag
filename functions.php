@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.13' );
+define( 'HAPAG_VERSION', '0.1.14' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -567,7 +567,7 @@ function hapag_front_end_aria( $content, $block ) {
 		}
 	}
 
-	$hidden = array( 'hapag-sticker', 'hapag-cta-star', 'hapag-card-rating', 'hapag-footer-word' );
+	$hidden = array( 'hapag-sticker', 'hapag-cta-star', 'hapag-card-rating', 'hapag-footer-word', 'hapag-error-art' );
 	foreach ( $hidden as $class ) {
 		if ( ! hapag_block_has_class( $block, $class ) ) {
 			continue;

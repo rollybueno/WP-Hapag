@@ -196,6 +196,29 @@
 	line-height: 1.6;
 }
 
+.hapag-display-hero.is-style-manifesto {
+	min-height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 7rem 4vw 5rem;
+	border-bottom: 1px solid var(--wp--custom--line);
+}
+
+.hapag-display-hero.is-style-manifesto :is(h1, .wp-block-heading) {
+	font-size: clamp(6rem, 15vw, 16rem);
+	line-height: 0.7;
+	letter-spacing: -0.08em;
+	margin: 0;
+}
+
+.hapag-display-hero.is-style-manifesto .hapag-intro {
+	max-width: 40rem;
+	margin: 2.5rem 0 0;
+	font-size: 1.25rem;
+	line-height: 1.6;
+}
+
 .hapag-display-hero .wp-block-buttons {
 	align-items: center;
 	gap: 1.5rem;
@@ -593,6 +616,23 @@
 	min-height: calc(100vh - 84px);
 }
 
+.hapag-split-media.is-style-error {
+	background: var(--wp--preset--color--pink);
+	min-height: calc(100vh - 134px);
+}
+
+.hapag-split-media.is-style-statement {
+	min-height: 750px;
+}
+
+.hapag-split-media.is-style-statement .hapag-split-copy {
+	background: var(--wp--preset--color--pink);
+}
+
+.hapag-split-media.is-style-statement .hapag-split-media-frame {
+	min-height: 750px;
+}
+
 .hapag-split-media .hapag-split-copy {
 	padding: 8vw 6vw;
 	display: flex;
@@ -606,6 +646,44 @@
 
 .hapag-split-media .hapag-split-copy h2 em {
 	color: var(--wp--preset--color--green);
+}
+
+.hapag-split-media.is-style-error .hapag-split-copy h1 {
+	font-size: clamp(6rem, 11vw, 12rem);
+	line-height: 0.7;
+	letter-spacing: -0.08em;
+	margin: 0;
+}
+
+.hapag-split-media.is-style-error .hapag-split-copy h1 em {
+	color: var(--wp--preset--color--orange);
+}
+
+.hapag-split-media.is-style-error .hapag-split-copy > p:not(.has-eyebrow-font-size) {
+	max-width: 32rem;
+	font-size: 1.1rem;
+	line-height: 1.6;
+}
+
+.hapag-split-media.is-style-error .wp-block-buttons {
+	margin-top: 1rem;
+}
+
+.hapag-split-media.is-style-statement .hapag-split-copy h2 {
+	font-size: clamp(3.5rem, 7vw, 7rem);
+	line-height: 0.8;
+	letter-spacing: -0.055em;
+	margin: 0.5rem 0 2rem;
+}
+
+.hapag-split-media.is-style-statement .hapag-intro {
+	max-width: none;
+	font-size: 1.15rem;
+	line-height: 1.7;
+}
+
+.hapag-split-media.is-style-statement .wp-block-cover__inner-container {
+	display: none;
 }
 
 .hapag-split-media .hapag-split-copy > p:not(.has-eyebrow-font-size) {
@@ -702,6 +780,79 @@
 	top: auto;
 	bottom: 3rem;
 	left: 2rem;
+}
+
+.hapag-error-art {
+	position: relative;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+	min-height: 60vh;
+	background: repeating-linear-gradient(-45deg, transparent 0 25px, rgba(255, 255, 255, 0.12) 25px 50px);
+}
+
+.hapag-empty-plate {
+	width: min(70%, 600px);
+	aspect-ratio: 1;
+	margin: 0;
+	border: 3px solid;
+	border-radius: 50%;
+	background: var(--wp--preset--color--cream);
+	box-shadow: inset 0 0 0 35px var(--wp--preset--color--yellow), inset 0 0 0 38px var(--wp--preset--color--ink), 15px 18px 0 rgba(0, 0, 0, 0.15);
+	display: grid;
+	place-items: center;
+	transform: rotate(-8deg);
+	color: var(--wp--preset--color--green);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(6rem, 12vw, 12rem);
+	font-weight: 800;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.hapag-error-mark {
+	position: absolute;
+	margin: 0;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 8rem;
+	font-weight: 800;
+	line-height: 1;
+}
+
+.hapag-error-mark.is-question {
+	top: 8%;
+	right: 7%;
+	color: var(--wp--preset--color--orange);
+	transform: rotate(20deg);
+}
+
+.hapag-error-mark.is-star {
+	bottom: 3%;
+	left: 5%;
+	color: var(--wp--preset--color--green);
+}
+
+.hapag-cover-statement,
+.wp-block-cover.hapag-cover-statement {
+	min-height: 80vh;
+}
+
+.hapag-cover-statement .wp-block-cover__inner-container {
+	width: 100%;
+	margin: 0;
+	padding: 0 4vw 3rem;
+}
+
+.hapag-cover-kicker {
+	margin: 0;
+	color: var(--wp--preset--color--white);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(3rem, 6vw, 7rem);
+	font-weight: 800;
+	line-height: 0.8;
+	text-transform: uppercase;
+	text-shadow: 0 2px 25px rgba(0, 0, 0, 0.4);
 }
 
 .hapag-journal-split {
@@ -1327,6 +1478,56 @@
 	margin: 0.5rem 0 2rem;
 }
 
+.hapag-cta-number {
+	margin: 0;
+	font-weight: 800;
+}
+
+.hapag-cta-band.is-style-numbered {
+	padding: 10rem 8vw;
+	border: 0;
+}
+
+.hapag-cta-band.is-style-numbered h2 {
+	max-width: 1100px;
+	font-size: clamp(5rem, 11vw, 12rem);
+	margin: 0.5rem 0 2rem;
+}
+
+.hapag-cta-band.is-style-numbered .hapag-intro {
+	max-width: 45rem;
+	margin-left: auto;
+	font-size: 1.25rem;
+	line-height: 1.7;
+}
+
+.hapag-cta-band.is-style-dual-action {
+	padding: 9rem 4vw;
+	text-align: center;
+	color: var(--wp--preset--color--white);
+	border: 0;
+}
+
+.hapag-cta-band.is-style-dual-action :is(.hapag-eyebrow, h2, .wp-block-heading) {
+	color: inherit;
+}
+
+.hapag-cta-band.is-style-dual-action h2 {
+	font-size: clamp(6rem, 13vw, 14rem);
+	margin: 0.5rem 0 2rem;
+}
+
+.hapag-cta-band.is-style-dual-action .wp-block-buttons {
+	justify-content: center;
+	gap: 1rem;
+}
+
+.hapag-cta-band.is-style-dual-action .hapag-button-outline .wp-block-button__link,
+.hapag-cta-band.is-style-dual-action .is-style-outline .wp-block-button__link {
+	color: var(--wp--preset--color--white);
+	border-color: var(--wp--preset--color--white);
+}
+
 .hapag-query-grid.is-style-related {
 	padding: 7rem 4vw;
 }
@@ -1548,6 +1749,14 @@
 		min-height: 75vh;
 	}
 
+	.hapag-split-media.is-style-statement .hapag-split-media-frame {
+		min-height: 60vh;
+	}
+
+	.hapag-split-media.is-style-error .hapag-error-art {
+		min-height: 60vh;
+	}
+
 	.hapag-split-media.is-style-overlay .wp-block-cover,
 	.hapag-split-media.is-style-overlay .hapag-split-media-frame {
 		border-left: 0;
@@ -1616,6 +1825,51 @@
 
 	.hapag-display-hero.is-style-archive :is(h1, .wp-block-heading, .wp-block-query-title) {
 		font-size: 5rem;
+	}
+
+	.hapag-display-hero.is-style-manifesto {
+		padding: 5rem 1rem 3rem;
+	}
+
+	.hapag-display-hero.is-style-manifesto :is(h1, .wp-block-heading) {
+		font-size: 5rem;
+	}
+
+	.hapag-split-media.is-style-error .hapag-split-copy {
+		padding: 5rem 1rem;
+	}
+
+	.hapag-split-media.is-style-error .hapag-split-copy h1 {
+		font-size: 5rem;
+	}
+
+	.hapag-split-media.is-style-error .hapag-error-art {
+		min-height: 50vh;
+	}
+
+	.hapag-cta-band.is-style-numbered {
+		padding: 6rem 1rem;
+	}
+
+	.hapag-cta-band.is-style-numbered h2 {
+		font-size: 4.5rem;
+	}
+
+	.hapag-cta-band.is-style-dual-action {
+		padding: 6rem 1rem;
+	}
+
+	.hapag-cta-band.is-style-dual-action h2 {
+		font-size: 5rem;
+	}
+
+	.hapag-cta-band.is-style-dual-action .wp-block-buttons {
+		flex-direction: column;
+	}
+
+	.hapag-cover-statement,
+	.hapag-cover-statement.wp-block-cover {
+		min-height: 65vh;
 	}
 
 	.hapag-query-grid.is-style-archive .wp-block-post-template.is-layout-grid,
