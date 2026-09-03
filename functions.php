@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.16' );
+define( 'HAPAG_VERSION', '0.1.18' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -542,6 +542,33 @@ function hapag_classic_heading_ids( $content ) {
 	);
 }
 add_filter( 'the_content', 'hapag_classic_heading_ids', 8 );
+
+/**
+ * Prints the current site name in the footer copyright, not the theme name.
+ *
+ * @param string $content Block HTML.
+ * @param array  $block   Parsed block.
+ */
+function hapag_render_site_copyright( $content, $block ) {
+	if ( ! $content || ! hapag_block_has_class( $block, 'hapag-site-copyright' ) ) {
+		return $content;
+	}
+
+	$name = wp_strip_all_tags( get_bloginfo( 'name' ) );
+	if ( '' === $name ) {
+		return $content;
+	}
+
+	$label = sprintf(
+		/* translators: 1: copyright year, 2: site name. */
+		__( '© %1$s %2$s', 'hapag' ),
+		gmdate( 'Y' ),
+		$name
+	);
+
+	return '<p class="hapag-site-copyright">' . esc_html( $label ) . '</p>';
+}
+add_filter( 'render_block_core/paragraph', 'hapag_render_site_copyright', 10, 2 );
 
 /**
  * Adds front-end ARIA that Gutenberg’s save markup cannot store.

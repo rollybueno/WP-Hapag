@@ -1665,11 +1665,38 @@
 	color: var(--wp--preset--color--orange);
 }
 
-.wp-block-button__link:focus-visible,
-.wp-block-navigation a:focus-visible,
-.wp-block-site-title a:focus-visible {
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible,
+input:focus,
+input:focus-visible,
+select:focus,
+select:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+summary:focus,
+summary:focus-visible {
 	outline: 2px solid var(--wp--preset--color--orange);
 	outline-offset: 3px;
+}
+
+.hapag-footer a:focus,
+.hapag-footer a:focus-visible,
+.hapag-footer button:focus,
+.hapag-footer button:focus-visible,
+.hapag-footer input:focus,
+.hapag-footer input:focus-visible {
+	outline-color: var(--wp--preset--color--lime);
+}
+
+.hapag-cta-band a:focus,
+.hapag-cta-band a:focus-visible,
+.hapag-cta-band button:focus,
+.hapag-cta-band button:focus-visible,
+.hapag-announcement a:focus,
+.hapag-announcement a:focus-visible {
+	outline-color: var(--wp--preset--color--ink);
 }
 
 @container hapag-recipe (min-width: 901px) {

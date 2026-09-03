@@ -28,6 +28,17 @@ The GitHub repository is named wp-hapag. The WordPress theme directory must rema
 = 0.1.0 =
 * Baseline block theme: theme.json, style.css, fonts, templates, and parts.
 
-== Credits ==
+== Copyright ==
 
-See credits.txt for fonts and photography attribution.
+Hapag WordPress Theme, Copyright 2026 Rolly Bueno
+Hapag is distributed under the terms of the GNU GPL.
+
+== Resources ==
+
+* DM Sans, Colophon Foundry / Google Fonts, SIL Open Font License 1.1, https://fonts.google.com/specimen/DM+Sans
+* League Spartan, The League of Moveable Type / Google Fonts, SIL Open Font License 1.1, https://fonts.google.com/specimen/League+Spartan
+* breakfast-eggs.jpg, Travel Adventures / StockSnap, CC0, https://stocksnap.io/photo/breakfast-eggs-4UP8O6XKXQ
+* berry-pancakes.jpg, Elliott Chau / StockSnap, CC0, https://stocksnap.io/photo/food-foodphotography-GNAFKFNM2R
+* mexican-tacos.jpg, Tim Sullivan / StockSnap, CC0, https://stocksnap.io/photo/mexican-tacos-UPG7YS3LGW
+* flatlay-plate.jpg, Sarah Pflug / StockSnap, CC0, https://stocksnap.io/photo/flatlay-plate-WZRTRRU0M7
+* waffles-breakfast.jpg, Humphrey Muleba / StockSnap, CC0, https://stocksnap.io/photo/waffles-breakfast-P3NGIKBIFL

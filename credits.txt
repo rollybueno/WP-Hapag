@@ -1,6 +1,9 @@
 Hapag theme credits
 ==================
 
+Hapag WordPress Theme, Copyright 2026 Rolly Bueno
+Hapag is distributed under the terms of the GNU GPL v2 or later.
+
 Hapag is inspired by Filipino food culture and the idea of the hapag —
 a table where food, stories, and people come together.
 
