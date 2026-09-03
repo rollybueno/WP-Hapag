@@ -1,0 +1,64 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","metadata":{"name":"Home"},"className":"hapag-archive","align":"full","layout":{"type":"default"}} -->
+<main class="wp-block-group alignfull hapag-archive">
+	<!-- wp:group {"tagName":"header","metadata":{"name":"Display hero"},"className":"hapag-display-hero is-style-archive","align":"full","layout":{"type":"default"}} -->
+	<header class="wp-block-group alignfull hapag-display-hero is-style-archive">
+		<!-- wp:paragraph {"className":"hapag-eyebrow","fontSize":"eyebrow"} -->
+		<p class="hapag-eyebrow has-eyebrow-font-size">The recipe index</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":1} -->
+		<h1 class="wp-block-heading">Cook<br><em>something.</em></h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"className":"hapag-intro"} -->
+		<p class="hapag-intro">Weeknight wins, slow Sunday projects, and sweet things for no particular reason.</p>
+		<!-- /wp:paragraph -->
+	</header>
+	<!-- /wp:group -->
+
+	<!-- wp:pattern {"slug":"hapag/term-pills"} /-->
+
+	<!-- wp:group {"tagName":"section","metadata":{"name":"Query grid"},"className":"hapag-query-grid is-style-archive","align":"full","layout":{"type":"default"}} -->
+	<section class="wp-block-group alignfull hapag-query-grid is-style-archive">
+		<!-- wp:query {"queryId":12,"query":{"perPage":6,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"grid","columnCount":3}} -->
+				<!-- wp:group {"className":"hapag-card","layout":{"type":"default"}} -->
+				<div class="wp-block-group hapag-card">
+					<!-- wp:group {"className":"hapag-card-media","layout":{"type":"default"}} -->
+					<div class="wp-block-group hapag-card-media">
+						<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/5"} /-->
+						<!-- wp:post-terms {"term":"category","className":"hapag-card-badge"} /-->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:post-terms {"term":"category","className":"hapag-card-kicker"} /-->
+
+					<!-- wp:post-title {"isLink":true,"level":3} /-->
+
+					<!-- wp:paragraph {"className":"hapag-card-arrow"} -->
+					<p class="hapag-card-arrow">View recipe ↗</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>No recipes on the table yet. Publish a few posts and they will land here.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
+
+			<!-- wp:query-pagination {"className":"hapag-load-more","layout":{"type":"flex","justifyContent":"center"}} -->
+				<!-- wp:query-pagination-next {"label":"Load more recipes ↓"} /-->
+			<!-- /wp:query-pagination -->
+		</div>
+		<!-- /wp:query -->
+	</section>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

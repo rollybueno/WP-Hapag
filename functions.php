@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.12' );
+define( 'HAPAG_VERSION', '0.1.13' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -168,6 +168,71 @@ function hapag_render_page_title( $content, $block ) {
 	return is_string( $updated ) ? $updated : $content;
 }
 add_filter( 'render_block_core/post-title', 'hapag_render_page_title', 10, 2 );
+
+/**
+ * Splits the last word of an archive title so the hero can accent it.
+ */
+function hapag_render_archive_title( $content ) {
+	if ( ( ! is_archive() && ! is_home() ) || ! $content || false !== strpos( $content, '<em>' ) ) {
+		return $content;
+	}
+
+	$text  = trim( wp_strip_all_tags( $content ) );
+	$parts = preg_split( '/\s+/', $text );
+	if ( ! is_array( $parts ) || '' === $text ) {
+		return $content;
+	}
+
+	if ( count( $parts ) < 2 ) {
+		$inner = '<em>' . esc_html( $text ) . '</em>';
+	} else {
+		$last  = array_pop( $parts );
+		$first = implode( ' ', $parts );
+		$inner = esc_html( $first ) . '<br><em>' . esc_html( $last ) . '</em>';
+	}
+	$updated = preg_replace( '/>\s*' . preg_quote( $text, '/' ) . '\s*</', '>' . $inner . '<', $content, 1 );
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'render_block_core/query-title', 'hapag_render_archive_title' );
+
+/**
+ * Keeps the recipe index on a six-card page, matching the archive prototype.
+ */
+function hapag_archive_posts_per_page( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	if ( $query->is_home() || $query->is_category() || $query->is_tag() || $query->is_author() || $query->is_date() ) {
+		$query->set( 'posts_per_page', 6 );
+	}
+}
+add_action( 'pre_get_posts', 'hapag_archive_posts_per_page' );
+
+/**
+ * Turns the archive card arrow into a permalink.
+ */
+function hapag_render_card_arrow( $content, $block ) {
+	if ( ! $content || ! hapag_block_has_class( $block, 'hapag-card-arrow' ) || false !== strpos( $content, '<a ' ) ) {
+		return $content;
+	}
+
+	$url = get_permalink();
+	if ( ! is_string( $url ) || '' === $url ) {
+		return $content;
+	}
+
+	$updated = preg_replace(
+		'/(<p\b[^>]*>)(.*?)(<\/p>)/s',
+		'$1<a href="' . esc_url( $url ) . '">$2</a>$3',
+		$content,
+		1
+	);
+
+	return is_string( $updated ) ? $updated : $content;
+}
+add_filter( 'render_block_core/paragraph', 'hapag_render_card_arrow', 10, 2 );
 
 /**
  * Uses the prototype comments wording on pages.
@@ -491,6 +556,13 @@ function hapag_front_end_aria( $content, $block ) {
 	if ( hapag_block_has_class( $block, 'hapag-recipe' ) ) {
 		if ( $processor->next_tag() ) {
 			$processor->set_attribute( 'aria-labelledby', 'recipe-title' );
+			return $processor->get_updated_html();
+		}
+	}
+
+	if ( hapag_block_has_class( $block, 'hapag-term-pills' ) ) {
+		if ( $processor->next_tag() ) {
+			$processor->set_attribute( 'aria-label', __( 'Recipe filters', 'hapag' ) );
 			return $processor->get_updated_html();
 		}
 	}

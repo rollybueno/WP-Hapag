@@ -177,6 +177,25 @@
 	margin: 0;
 }
 
+.hapag-display-hero.is-style-archive {
+	padding: 7rem 4vw 5rem;
+	border-bottom: 1px solid var(--wp--custom--line);
+}
+
+.hapag-display-hero.is-style-archive :is(h1, .wp-block-heading, .wp-block-query-title) {
+	font-size: clamp(6rem, 14vw, 14rem);
+	line-height: 0.7;
+	letter-spacing: -0.08em;
+	margin: 0;
+}
+
+.hapag-display-hero.is-style-archive .hapag-intro {
+	max-width: 40rem;
+	margin: 2.5rem 0 0;
+	font-size: 1.25rem;
+	line-height: 1.6;
+}
+
 .hapag-display-hero .wp-block-buttons {
 	align-items: center;
 	gap: 1.5rem;
@@ -432,6 +451,118 @@
 .hapag-card .wp-block-post-excerpt p {
 	line-height: 1.55;
 	margin-bottom: 0;
+}
+
+.hapag-term-pills {
+	gap: 0.6rem;
+	padding: 1.5rem 4vw;
+	overflow: auto;
+	border-bottom: 1px solid var(--wp--custom--line);
+}
+
+.hapag-term-pills > p {
+	margin: 0;
+}
+
+.hapag-term-pills a {
+	display: inline-flex;
+	align-items: center;
+	white-space: nowrap;
+	border: 1px solid var(--wp--custom--line);
+	border-radius: 99px;
+	padding: 0.7rem 1rem;
+	background: transparent;
+	color: inherit;
+	font-size: 0.72rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.hapag-term-pills a[aria-current="page"] {
+	background: var(--wp--preset--color--ink);
+	color: var(--wp--preset--color--white);
+}
+
+.hapag-term-pills small {
+	opacity: 0.55;
+	margin-left: 0.5rem;
+}
+
+.hapag-query-grid.is-style-archive {
+	padding: 0;
+}
+
+.hapag-query-grid.is-style-archive .wp-block-post-template {
+	gap: 1px;
+	background: rgba(23, 23, 20, 0.13);
+	border-bottom: 1px solid rgba(23, 23, 20, 0.13);
+}
+
+.hapag-query-grid.is-style-archive .hapag-card {
+	border: 0;
+	padding: 1rem 1rem 2.5rem;
+	background: var(--wp--preset--color--cream);
+}
+
+.hapag-query-grid.is-style-archive .hapag-card-media {
+	margin-bottom: 1.5rem;
+}
+
+.hapag-query-grid.is-style-archive .hapag-card .wp-block-post-featured-image {
+	aspect-ratio: 4 / 4.8;
+	filter: none;
+}
+
+.hapag-query-grid.is-style-archive .hapag-card .wp-block-post-featured-image img {
+	filter: none;
+}
+
+.hapag-query-grid.is-style-archive .hapag-card-kicker {
+	margin: 0 0 0.6rem;
+	font-size: 0.72rem;
+	letter-spacing: 0.14em;
+}
+
+.hapag-query-grid.is-style-archive .hapag-card-kicker::before {
+	content: none;
+}
+
+.hapag-query-grid.is-style-archive .hapag-card .wp-block-post-title {
+	font-size: clamp(2rem, 3vw, 3.3rem);
+	margin: 0 0 2rem;
+	min-height: 0;
+}
+
+.hapag-card-arrow {
+	margin-top: auto;
+	font-size: 0.72rem;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+.hapag-card-arrow a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.hapag-load-more {
+	padding: 4rem;
+}
+
+.hapag-load-more .wp-block-query-pagination-next {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 1.2rem;
+	border: 2px solid var(--wp--preset--color--ink);
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+	font-size: 0.75rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	text-decoration: none;
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link,
@@ -1374,12 +1505,12 @@
 }
 
 @media (max-width: 1366px) {
-	.hapag-query-grid:not(.is-style-related) .wp-block-post-template.is-layout-grid,
-	.hapag-query-grid:not(.is-style-related) .wp-block-post-template-is-layout-grid.columns-3 {
+	.hapag-query-grid:not(.is-style-related):not(.is-style-archive) .wp-block-post-template.is-layout-grid,
+	.hapag-query-grid:not(.is-style-related):not(.is-style-archive) .wp-block-post-template-is-layout-grid.columns-3 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
-	.hapag-query-grid:not(.is-style-related) .wp-block-post:first-child {
+	.hapag-query-grid:not(.is-style-related):not(.is-style-archive) .wp-block-post:first-child {
 		grid-column: 1 / -1;
 	}
 }
@@ -1455,6 +1586,11 @@
 	.hapag-footer-order {
 		grid-column: 1 / -1;
 	}
+
+	.hapag-query-grid.is-style-archive .wp-block-post-template.is-layout-grid,
+	.hapag-query-grid.is-style-archive .wp-block-post-template-is-layout-grid.columns-3 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 }
 
 @media (max-width: 600px) {
@@ -1472,6 +1608,23 @@
 
 	.hapag-display-hero.is-style-page :is(h1, .wp-block-post-title) {
 		font-size: 5rem;
+	}
+
+	.hapag-display-hero.is-style-archive {
+		padding: 5rem 1rem 3rem;
+	}
+
+	.hapag-display-hero.is-style-archive :is(h1, .wp-block-heading, .wp-block-query-title) {
+		font-size: 5rem;
+	}
+
+	.hapag-query-grid.is-style-archive .wp-block-post-template.is-layout-grid,
+	.hapag-query-grid.is-style-archive .wp-block-post-template-is-layout-grid.columns-3 {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.hapag-query-grid.is-style-archive .hapag-card {
+		padding: 1rem 1rem 2rem;
 	}
 
 	.hapag-page-featured {
