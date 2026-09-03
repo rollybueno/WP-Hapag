@@ -7,7 +7,7 @@
  * Description: Section heading plus a Query Loop of recipe cards.
  */
 ?>
-<!-- wp:group {"tagName":"section","anchor":"recipes","metadata":{"name":"Query grid"},"className":"hapag-query-grid is-style-featured","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","anchor":"recipes","metadata":{"name":"Query grid"},"className":"hapag-query-grid is-style-featured","align":"full","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull hapag-query-grid is-style-featured" id="recipes">
 	<!-- wp:group {"className":"hapag-query-heading","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
 	<div class="wp-block-group hapag-query-heading">
@@ -29,12 +29,12 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"namespace":"hapag/query-grid"} -->
+	<!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false}} -->
 	<div class="wp-block-query">
 		<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"grid","columnCount":3}} -->
-			<!-- wp:group {"className":"hapag-card","style":{"spacing":{"blockGap":"0","padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"layout":{"type":"default"}} -->
+			<!-- wp:group {"className":"hapag-card","layout":{"type":"default"}} -->
 			<div class="wp-block-group hapag-card">
-				<!-- wp:group {"className":"hapag-card-media","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"}}},"layout":{"type":"default"}} -->
+				<!-- wp:group {"className":"hapag-card-media","layout":{"type":"default"}} -->
 				<div class="wp-block-group hapag-card-media">
 					<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/5"} /-->
 					<!-- wp:post-terms {"term":"category","className":"hapag-card-badge"} /-->
@@ -45,7 +45,7 @@
 				<div class="wp-block-group hapag-card-meta">
 					<!-- wp:post-terms {"term":"category","className":"hapag-card-kicker"} /-->
 					<!-- wp:paragraph {"className":"hapag-card-rating"} -->
-					<p class="hapag-card-rating" aria-hidden="true">★★★★★</p>
+					<p class="hapag-card-rating">★★★★★</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->

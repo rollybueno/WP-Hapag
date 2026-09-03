@@ -7,8 +7,8 @@
  * Description: Recipe title, facts, ingredients checklist, and numbered instructions.
  */
 ?>
-<!-- wp:group {"tagName":"section","metadata":{"name":"Recipe"},"className":"hapag-recipe","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
-<section class="wp-block-group alignfull hapag-recipe" aria-labelledby="recipe-title">
+<!-- wp:group {"tagName":"section","metadata":{"name":"Recipe"},"className":"hapag-recipe","align":"full","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull hapag-recipe">
 	<!-- wp:group {"tagName":"header","className":"hapag-recipe-header","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
 	<header class="wp-block-group hapag-recipe-header">
 		<!-- wp:paragraph {"className":"hapag-eyebrow","fontSize":"eyebrow"} -->

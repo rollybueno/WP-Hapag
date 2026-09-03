@@ -7,7 +7,7 @@
  * Description: One featured post beside a compact list of recent posts.
  */
 ?>
-<!-- wp:group {"tagName":"section","anchor":"stories","metadata":{"name":"Journal split"},"className":"hapag-journal-split","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","anchor":"stories","metadata":{"name":"Journal split"},"className":"hapag-journal-split","align":"full","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull hapag-journal-split" id="stories">
 	<!-- wp:group {"className":"hapag-journal-heading","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 	<div class="wp-block-group hapag-journal-heading">
@@ -31,7 +31,7 @@
 
 	<!-- wp:group {"className":"hapag-journal-grid","layout":{"type":"default"}} -->
 	<div class="wp-block-group hapag-journal-grid">
-		<!-- wp:query {"queryId":2,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
+		<!-- wp:query {"queryId":2,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"hapag-journal-main"} -->
 		<div class="wp-block-query hapag-journal-main">
 			<!-- wp:post-template -->
 				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/10"} /-->
@@ -42,7 +42,7 @@
 		</div>
 		<!-- /wp:query -->
 
-		<!-- wp:query {"queryId":3,"query":{"perPage":3,"pages":0,"offset":1,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
+		<!-- wp:query {"queryId":3,"query":{"perPage":3,"pages":0,"offset":1,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"hapag-journal-list"} -->
 		<div class="wp-block-query hapag-journal-list">
 			<!-- wp:post-template -->
 				<!-- wp:post-terms {"term":"category","fontSize":"eyebrow"} /-->

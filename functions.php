@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.5' );
+define( 'HAPAG_VERSION', '0.1.7' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -378,3 +378,36 @@ function hapag_classic_heading_ids( $content ) {
 	);
 }
 add_filter( 'the_content', 'hapag_classic_heading_ids', 8 );
+
+/**
+ * Adds front-end ARIA that Gutenberg’s save markup cannot store.
+ */
+function hapag_front_end_aria( $content, $block ) {
+	if ( ! $content || ! is_array( $block ) ) {
+		return $content;
+	}
+
+	$processor = new WP_HTML_Tag_Processor( $content );
+
+	if ( hapag_block_has_class( $block, 'hapag-recipe' ) ) {
+		if ( $processor->next_tag() ) {
+			$processor->set_attribute( 'aria-labelledby', 'recipe-title' );
+			return $processor->get_updated_html();
+		}
+	}
+
+	$hidden = array( 'hapag-sticker', 'hapag-cta-star', 'hapag-card-rating', 'hapag-footer-word' );
+	foreach ( $hidden as $class ) {
+		if ( ! hapag_block_has_class( $block, $class ) ) {
+			continue;
+		}
+
+		if ( $processor->next_tag() ) {
+			$processor->set_attribute( 'aria-hidden', 'true' );
+			return $processor->get_updated_html();
+		}
+	}
+
+	return $content;
+}
+add_filter( 'render_block', 'hapag_front_end_aria', 10, 2 );

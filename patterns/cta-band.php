@@ -7,10 +7,10 @@
  * Description: Full-width color band with heading and an action. Form style by default.
  */
 ?>
-<!-- wp:group {"tagName":"section","metadata":{"name":"CTA band"},"className":"hapag-cta-band is-style-form","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"color":{"background":"var:preset|color|yellow"}},"backgroundColor":"yellow","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","metadata":{"name":"CTA band"},"className":"hapag-cta-band is-style-form","align":"full","backgroundColor":"yellow","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull hapag-cta-band is-style-form has-yellow-background-color has-background">
 	<!-- wp:paragraph {"className":"hapag-cta-star"} -->
-	<p class="hapag-cta-star" aria-hidden="true">✦</p>
+	<p class="hapag-cta-star">✦</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained","justifyContent":"left"}} -->

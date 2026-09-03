@@ -345,7 +345,7 @@
 			}
 		},
 		"spacing": {
-			"blockGap": "var:preset|spacing|40",
+			"blockGap": "0",
 			"padding": {
 				"left": "4vw",
 				"right": "4vw"

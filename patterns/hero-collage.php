@@ -8,7 +8,7 @@
  */
 $hapag_uri = get_template_directory_uri();
 ?>
-<!-- wp:group {"tagName":"section","metadata":{"name":"Hero collage"},"className":"hapag-hero-collage","align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","metadata":{"name":"Hero collage"},"className":"hapag-hero-collage","align":"full","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull hapag-hero-collage">
 	<!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-tall"} -->
 	<figure class="wp-block-image size-full is-tall"><img src="<?php echo esc_url( $hapag_uri . '/assets/images/breakfast-eggs.jpg' ); ?>" alt="<?php esc_attr_e( 'Eggs Benedict and fresh greens on a breakfast table', 'hapag' ); ?>"/><figcaption class="wp-element-caption"><?php esc_html_e( 'Slow mornings', 'hapag' ); ?></figcaption></figure>
@@ -23,7 +23,7 @@ $hapag_uri = get_template_directory_uri();
 	<!-- /wp:image -->
 
 	<!-- wp:paragraph {"className":"hapag-sticker"} -->
-	<p class="hapag-sticker" aria-hidden="true"><?php echo wp_kses_post( __( 'YUM<br><small>× 100</small>', 'hapag' ) ); ?></p>
+	<p class="hapag-sticker"><?php echo wp_kses_post( __( 'YUM<br><small>× 100</small>', 'hapag' ) ); ?></p>
 	<!-- /wp:paragraph -->
 </section>
 <!-- /wp:group -->

@@ -10,7 +10,7 @@ $hapag_headings  = hapag_post_heading_links();
 $hapag_permalink = get_permalink();
 $hapag_share     = $hapag_permalink ? rawurlencode( $hapag_permalink ) : '';
 ?>
-<!-- wp:group {"tagName":"section","metadata":{"name":"Content rail"},"className":"hapag-content-rail is-style-article","align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"white","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","metadata":{"name":"Content rail"},"className":"hapag-content-rail is-style-article","align":"full","backgroundColor":"white","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull hapag-content-rail is-style-article has-white-background-color has-background">
 	<!-- wp:group {"tagName":"aside","className":"hapag-content-rail-nav","layout":{"type":"default"}} -->
 	<aside class="wp-block-group hapag-content-rail-nav">
