@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.7' );
+define( 'HAPAG_VERSION', '0.1.9' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -100,8 +100,13 @@ add_filter( 'render_block_core/group', 'hapag_render_card_media', 10, 2 );
  * @param string $class Class to match.
  */
 function hapag_block_has_class( $block, $class ) {
-	$classes = preg_split( '/\s+/', isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '' );
-	return in_array( $class, is_array( $classes ) ? $classes : array(), true );
+	$from_attrs = preg_split( '/\s+/', isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '' );
+	if ( in_array( $class, is_array( $from_attrs ) ? $from_attrs : array(), true ) ) {
+		return true;
+	}
+
+	$html = isset( $block['innerHTML'] ) ? $block['innerHTML'] : '';
+	return (bool) preg_match( '/\b' . preg_quote( $class, '/' ) . '\b/', $html );
 }
 
 /**
@@ -135,38 +140,8 @@ function hapag_post_recipe_blocks() {
 }
 
 /**
- * Drops recipe groups from Post Content so the article column stays 760px.
- */
-function hapag_mark_post_content_render( $pre_render, $block ) {
-	if ( ( $block['blockName'] ?? '' ) === 'core/post-content' ) {
-		$GLOBALS['hapag_in_post_content'] = true;
-	}
-
-	return $pre_render;
-}
-add_filter( 'pre_render_block', 'hapag_mark_post_content_render', 5, 2 );
-
-function hapag_unmark_post_content_render( $content ) {
-	$GLOBALS['hapag_in_post_content'] = false;
-	return $content;
-}
-add_filter( 'render_block_core/post-content', 'hapag_unmark_post_content_render' );
-
-function hapag_omit_in_content_recipe( $pre_render, $block ) {
-	if ( empty( $GLOBALS['hapag_in_post_content'] ) || '' !== $pre_render ) {
-		return $pre_render;
-	}
-
-	if ( hapag_block_has_class( $block, 'hapag-recipe' ) ) {
-		return '';
-	}
-
-	return $pre_render;
-}
-add_filter( 'pre_render_block', 'hapag_omit_in_content_recipe', 10, 2 );
-
-/**
- * Renders a post’s recipe full-bleed after the article, or the kit pattern.
+ * Leaves the after-article slot empty when the post already has a Recipe block.
+ * Posts without one still get the kit pattern so demo singles match the prototype.
  */
 function hapag_render_recipe_slot( $content, $block ) {
 	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
@@ -174,19 +149,31 @@ function hapag_render_recipe_slot( $content, $block ) {
 		return $content;
 	}
 
-	$recipes = hapag_post_recipe_blocks();
-	if ( $recipes ) {
-		$html = '';
-		foreach ( $recipes as $recipe ) {
-			$html .= render_block( $recipe );
-		}
-		return $html;
+	if ( hapag_post_recipe_blocks() ) {
+		return '';
 	}
 
 	$fallback = do_blocks( '<!-- wp:pattern {"slug":"hapag/recipe"} /-->' );
 	return $fallback ? $fallback : $content;
 }
 add_filter( 'render_block_core/group', 'hapag_render_recipe_slot', 10, 2 );
+
+/**
+ * Serializes post content with recipe groups removed.
+ *
+ * @param string $content Raw post content.
+ */
+function hapag_post_content_without_recipe( $content ) {
+	$keep = array();
+	foreach ( parse_blocks( (string) $content ) as $block ) {
+		if ( hapag_block_has_class( $block, 'hapag-recipe' ) ) {
+			continue;
+		}
+		$keep[] = $block;
+	}
+
+	return serialize_blocks( $keep );
+}
 
 /**
  * Collects level-2 headings from the current post for the contents rail.
@@ -240,7 +227,8 @@ function hapag_post_heading_links() {
 		return $links;
 	}
 
-	if ( preg_match_all( '/<h([23])\b[^>]*>(.*?)<\/h\1>/is', $post->post_content, $matches, PREG_SET_ORDER ) ) {
+	$without_recipe = hapag_post_content_without_recipe( $post->post_content );
+	if ( preg_match_all( '/<h([23])\b[^>]*>(.*?)<\/h\1>/is', $without_recipe, $matches, PREG_SET_ORDER ) ) {
 		foreach ( $matches as $match ) {
 			$text = trim( wp_strip_all_tags( $match[2] ) );
 			if ( '' === $text ) {
