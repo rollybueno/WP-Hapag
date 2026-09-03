@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.15' );
+define( 'HAPAG_VERSION', '0.1.16' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.

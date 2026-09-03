@@ -4,7 +4,8 @@
  * Slug: hapag/content-rail
  * Categories: hapag
  * Viewport width: 1400
- * Description: Sticky contents rail beside Post Content. Article style by default.
+ * Inserter: false
+ * Description: Template-only rail beside Post Content. Do not insert into a page or post — it already wraps Post Content.
  */
 $hapag_headings  = hapag_post_heading_links();
 $hapag_permalink = get_permalink();
