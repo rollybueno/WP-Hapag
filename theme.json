@@ -1,9 +1,13 @@
 {
-	"$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
 	"version": 3,
 	"settings": {
 		"appearanceTools": true,
 		"useRootPaddingAwareAlignments": true,
+		"viewport": {
+			"mobile": "600px",
+			"tablet": "900px"
+		},
 		"color": {
 			"custom": false,
 			"customDuotone": false,
@@ -374,6 +378,70 @@
 					"textTransform": "uppercase"
 				}
 			},
+			"core/post-author-name": {
+				"typography": {
+					"fontSize": "0.68rem",
+					"fontWeight": "800",
+					"letterSpacing": "0.04em",
+					"textTransform": "uppercase"
+				}
+			},
+			"core/post-content": {
+				"typography": {
+					"fontSize": "1.08rem",
+					"lineHeight": "1.85"
+				},
+				"elements": {
+					"caption": {
+						"typography": {
+							"fontSize": "0.7rem",
+							"fontWeight": "700",
+							"letterSpacing": "0.08em",
+							"textTransform": "uppercase"
+						}
+					},
+					"h2": {
+						"spacing": {
+							"margin": {
+								"bottom": "2rem",
+								"top": "6rem"
+							}
+						},
+						"typography": {
+							"fontSize": "clamp(3.3rem, 6vw, 6rem)",
+							"letterSpacing": "-0.055em",
+							"lineHeight": "0.82",
+							"textTransform": "uppercase"
+						}
+					},
+					"h3": {
+						"typography": {
+							"fontFamily": "var:preset|font-family|display",
+							"fontWeight": "800",
+							"textTransform": "uppercase"
+						}
+					}
+				}
+			},
+			"core/post-date": {
+				"typography": {
+					"fontSize": "0.68rem",
+					"fontWeight": "800",
+					"letterSpacing": "0.04em",
+					"textTransform": "uppercase"
+				}
+			},
+			"core/post-featured-image": {
+				"css": "& img { object-fit: cover; }"
+			},
+			"core/post-terms": {
+				"typography": {
+					"fontSize": "var:preset|font-size|eyebrow",
+					"fontWeight": "800",
+					"letterSpacing": "0.14em",
+					"textTransform": "uppercase"
+				}
+			},
 			"core/post-title": {
 				"typography": {
 					"fontFamily": "var:preset|font-family|display",
@@ -390,15 +458,18 @@
 				}
 			},
 			"core/quote": {
+				"border": {
+					"width": "0"
+				},
 				"color": {
 					"background": "var:preset|color|yellow"
 				},
 				"spacing": {
 					"padding": {
-						"bottom": "var:preset|spacing|50",
-						"left": "var:preset|spacing|50",
-						"right": "var:preset|spacing|50",
-						"top": "var:preset|spacing|50"
+						"bottom": "3rem",
+						"left": "5vw",
+						"right": "5vw",
+						"top": "3rem"
 					}
 				},
 				"typography": {

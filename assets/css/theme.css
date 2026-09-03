@@ -427,8 +427,15 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	min-height: 700px;
+}
+
+.hapag-split-media.is-style-overlay {
 	background: var(--wp--preset--color--pink);
 	border-block: 1px solid var(--wp--custom--line-soft);
+}
+
+.hapag-split-media.is-style-entry {
+	min-height: calc(100vh - 84px);
 }
 
 .hapag-split-media .hapag-split-copy {
@@ -453,7 +460,13 @@
 
 .hapag-split-media .wp-block-cover,
 .hapag-split-media .hapag-split-media-frame {
+	position: relative;
 	min-height: 650px;
+	overflow: hidden;
+}
+
+.hapag-split-media.is-style-overlay .wp-block-cover,
+.hapag-split-media.is-style-overlay .hapag-split-media-frame {
 	border-left: 1px solid var(--wp--custom--line-soft);
 }
 
@@ -472,6 +485,68 @@
 	font-size: clamp(2.5rem, 5vw, 5.5rem);
 	font-weight: 800;
 	line-height: 0.78;
+}
+
+.hapag-split-media.is-style-entry .hapag-split-copy {
+	padding: 7vw 5vw;
+}
+
+.hapag-split-media.is-style-entry .wp-block-post-title {
+	font-size: clamp(4.5rem, 8vw, 8rem);
+	line-height: 0.82;
+	letter-spacing: -0.06em;
+	margin: 0;
+}
+
+.hapag-split-media.is-style-entry .wp-block-post-excerpt {
+	max-width: 38rem;
+	margin: 0;
+	font-size: 1.2rem;
+	line-height: 1.6;
+}
+
+.hapag-split-media.is-style-entry .wp-block-post-excerpt p {
+	margin: 0;
+}
+
+.hapag-byline {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	margin-top: 2rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--wp--custom--line);
+	font-size: 0.68rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.hapag-byline .wp-block-post-author-name::before {
+	content: "By ";
+}
+
+.hapag-split-media.is-style-entry .hapag-split-media-frame {
+	background: #bd8154;
+}
+
+.hapag-split-media.is-style-entry .wp-block-post-featured-image,
+.hapag-split-media.is-style-entry .wp-block-post-featured-image img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+.hapag-split-media.is-style-entry .wp-block-post-featured-image img {
+	object-fit: cover;
+}
+
+.hapag-split-media.is-style-entry .hapag-sticker {
+	top: auto;
+	bottom: 3rem;
+	left: 2rem;
 }
 
 .hapag-journal-split {
@@ -565,6 +640,240 @@
 	margin: 0;
 }
 
+.hapag-content-rail {
+	display: grid;
+	grid-template-columns: 230px minmax(0, 760px);
+	justify-content: center;
+	gap: 7vw;
+	padding: 8rem 4vw;
+	background: #fff;
+}
+
+.hapag-content-rail-nav {
+	position: sticky;
+	top: 2rem;
+	align-self: start;
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid var(--wp--custom--line);
+}
+
+.hapag-content-rail-nav > .hapag-eyebrow,
+.hapag-content-rail-nav > .hapag-rail-link {
+	padding: 1rem 0;
+	margin: 0;
+	border-bottom: 1px solid var(--wp--custom--line);
+}
+
+.hapag-content-rail-nav > .hapag-rail-link {
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+
+.hapag-content-rail-nav > .hapag-rail-link a {
+	display: block;
+}
+
+.hapag-share-links {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding-top: 1.5rem;
+}
+
+.hapag-share-links > p {
+	margin: 0;
+}
+
+.hapag-share-links > p:first-child {
+	margin-right: auto;
+	text-transform: uppercase;
+	font-size: 0.65rem;
+	font-weight: 800;
+}
+
+.hapag-share-links a {
+	width: 32px;
+	height: 32px;
+	display: grid;
+	place-items: center;
+	border: 1px solid var(--wp--custom--line);
+	border-radius: 50%;
+	font-size: 0.65rem;
+	font-weight: 800;
+}
+
+.hapag-entry-content > p:first-child {
+	font-size: clamp(1.8rem, 3vw, 2.8rem);
+	line-height: 1.35;
+	margin-top: 0;
+}
+
+.hapag-entry-content h2,
+.hapag-entry-content h3 {
+	scroll-margin-top: 2rem;
+}
+
+.hapag-entry-content h3 {
+	font-size: clamp(3.3rem, 6vw, 6rem);
+	line-height: 0.82;
+	letter-spacing: -0.055em;
+	margin: 6rem 0 2rem;
+}
+
+.hapag-entry-content .wp-block-quote,
+.hapag-entry-content blockquote {
+	margin: 4rem -5vw;
+	padding: 3rem 5vw;
+	border: 0;
+	background: var(--wp--preset--color--yellow);
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(2rem, 4vw, 4rem);
+	font-weight: 800;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.hapag-entry-content .wp-block-quote p,
+.hapag-entry-content blockquote p {
+	margin: 0;
+}
+
+.hapag-recipe {
+	background: #fff;
+	border-top: 1px solid var(--wp--custom--line-soft);
+}
+
+.hapag-recipe .hapag-eyebrow {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--eyebrow);
+}
+
+.hapag-recipe-header {
+	padding: 8rem 8vw 4rem;
+	background: var(--wp--preset--color--cream);
+}
+
+.hapag-recipe-header h2 {
+	max-width: 1100px;
+	font-size: clamp(4.5rem, 9vw, 9rem);
+	line-height: 0.78;
+	letter-spacing: -0.065em;
+	margin: 0;
+}
+
+.hapag-recipe-deck {
+	font-size: 1.2rem;
+	margin: 0;
+}
+
+.hapag-recipe-facts {
+	gap: 2rem;
+	margin-top: 2rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--wp--custom--line-soft);
+	font-size: 0.7rem;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+.hapag-recipe-facts p {
+	margin: 0;
+}
+
+.hapag-recipe-body {
+	display: grid;
+	grid-template-columns: minmax(280px, 1fr) 2fr;
+	gap: 8vw;
+	padding: 6rem 8vw 8rem;
+	background: #fff;
+}
+
+.hapag-ingredients {
+	position: sticky;
+	top: 2rem;
+	align-self: start;
+	padding: 2rem;
+	background: var(--wp--preset--color--yellow);
+	border: 1px solid rgba(23, 23, 20, 0.16);
+}
+
+.hapag-ingredients h2 {
+	font-size: clamp(2.4rem, 3.3vw, 3.75rem);
+	line-height: 0.8;
+	letter-spacing: -0.055em;
+	margin: 0.5rem 0 2rem;
+	white-space: nowrap;
+}
+
+.hapag-ingredients label {
+	display: block;
+	padding: 1rem 0;
+	border-top: 1px solid rgba(23, 23, 20, 0.15);
+}
+
+.hapag-ingredients input {
+	margin-right: 0.6rem;
+}
+
+.hapag-recipe-note {
+	margin: 1rem -2rem -2rem;
+	padding: 2rem;
+	background: var(--wp--preset--color--pink);
+}
+
+.hapag-recipe-note p {
+	margin: 0.4rem 0 0;
+	line-height: 1.6;
+}
+
+.hapag-method h2 {
+	font-size: clamp(3.5rem, 7vw, 7rem);
+	line-height: 0.8;
+	letter-spacing: -0.055em;
+	margin: 0.5rem 0 2rem;
+}
+
+.hapag-method ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.hapag-method li {
+	display: grid;
+	grid-template-columns: 3rem 1fr;
+	gap: 1rem;
+	padding: 2rem 0;
+	border-top: 1px solid var(--wp--custom--line);
+}
+
+.hapag-method li > span {
+	font-size: 0.72rem;
+	font-weight: 800;
+}
+
+.hapag-method h3 {
+	font-size: 2rem;
+	margin: 0;
+}
+
+.hapag-method p {
+	line-height: 1.7;
+}
+
+.hapag-entry-content figure {
+	margin: 4rem 0;
+}
+
+.hapag-entry-content figcaption {
+	padding-top: 0.75rem;
+}
+
+.hapag-entry-content li {
+	margin-bottom: 0.8rem;
+}
+
 .hapag-cta-band {
 	padding: 6rem 8vw;
 	background: var(--wp--preset--color--yellow);
@@ -591,6 +900,67 @@
 .hapag-cta-band .hapag-intro {
 	max-width: 35rem;
 	line-height: 1.55;
+}
+
+.hapag-cta-band.is-style-single-action {
+	text-align: center;
+	padding: 7rem 4vw;
+	background: var(--wp--preset--color--pink);
+	border: 0;
+}
+
+.hapag-cta-band.is-style-single-action .hapag-cta-kicker {
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: 800;
+	letter-spacing: 0;
+	font-size: 1rem;
+}
+
+.hapag-cta-band.is-style-single-action h2 {
+	font-size: clamp(3.5rem, 7vw, 7rem);
+	margin: 0.5rem 0 2rem;
+}
+
+.hapag-query-grid.is-style-related {
+	padding: 7rem 4vw;
+}
+
+.hapag-query-grid.is-style-related .hapag-query-heading {
+	display: block;
+	margin-bottom: 2rem;
+}
+
+.hapag-query-grid.is-style-related .hapag-query-heading h2 {
+	font-size: clamp(3.5rem, 7vw, 7rem);
+	margin: 0.5rem 0 2rem;
+}
+
+.hapag-query-grid.is-style-related .wp-block-post-template {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hapag-card-entry {
+	padding-top: 0;
+}
+
+.hapag-card-entry .wp-block-post-featured-image {
+	aspect-ratio: 16 / 9;
+	margin: 0;
+	overflow: hidden;
+}
+
+.hapag-card-entry .wp-block-post-featured-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.hapag-card-entry .wp-block-post-title {
+	font-size: clamp(2rem, 4vw, 4rem);
+	line-height: 0.9;
+	margin-top: 1rem;
+	min-height: 0;
 }
 
 .hapag-footer {
@@ -680,13 +1050,21 @@
 	outline-offset: 3px;
 }
 
+@media (min-width: 901px) and (max-width: 1250px) {
+	.hapag-recipe-body {
+		gap: 5vw;
+		padding-right: 5vw;
+		padding-left: 5vw;
+	}
+}
+
 @media (max-width: 1366px) {
-	.hapag-query-grid .wp-block-post-template.is-layout-grid,
-	.hapag-query-grid .wp-block-post-template-is-layout-grid.columns-3 {
+	.hapag-query-grid:not(.is-style-related) .wp-block-post-template.is-layout-grid,
+	.hapag-query-grid:not(.is-style-related) .wp-block-post-template-is-layout-grid.columns-3 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
-	.hapag-query-grid .wp-block-post:first-child {
+	.hapag-query-grid:not(.is-style-related) .wp-block-post:first-child {
 		grid-column: 1 / -1;
 	}
 }
@@ -696,8 +1074,36 @@
 	.hapag-front-compose,
 	.hapag-split-media,
 	.hapag-journal-grid,
+	.hapag-content-rail,
 	.hapag-cta-band.is-style-form {
 		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.hapag-content-rail-nav {
+		position: static;
+	}
+
+	.hapag-entry-content .wp-block-quote,
+	.hapag-entry-content blockquote {
+		margin: 4rem 0;
+	}
+
+	.hapag-recipe-body {
+		grid-template-columns: 1fr;
+	}
+
+	.hapag-ingredients {
+		position: static;
+	}
+
+	.hapag-split-media.is-style-entry .hapag-split-media-frame {
+		min-height: 75vh;
+	}
+
+	.hapag-split-media.is-style-overlay .wp-block-cover,
+	.hapag-split-media.is-style-overlay .hapag-split-media-frame {
+		border-left: 0;
+		border-top: 1px solid var(--wp--custom--line-soft);
 	}
 
 	.hapag-display-hero.is-style-home {
@@ -754,15 +1160,40 @@
 		min-height: 280px;
 	}
 
-	.hapag-sticker {
+	.hapag-hero-collage .hapag-sticker {
 		left: 50%;
 		top: 48%;
 		width: 95px;
 	}
 
 	.hapag-query-grid,
-	.hapag-journal-split {
+	.hapag-journal-split,
+	.hapag-content-rail {
 		padding: 5rem 1rem;
+	}
+
+	.hapag-recipe-header {
+		padding: 5rem 1rem 3rem;
+	}
+
+	.hapag-recipe-header h2 {
+		font-size: 4rem;
+	}
+
+	.hapag-recipe-facts {
+		gap: 1rem;
+	}
+
+	.hapag-recipe-body {
+		padding: 5rem 1rem 6rem;
+	}
+
+	.hapag-split-media.is-style-entry .hapag-split-copy {
+		padding: 5rem 1rem;
+	}
+
+	.hapag-split-media.is-style-entry .wp-block-post-title {
+		font-size: 4rem;
 	}
 
 	.hapag-query-heading,
@@ -777,7 +1208,9 @@
 	}
 
 	.hapag-query-grid .wp-block-post-template.is-layout-grid,
-	.hapag-query-grid .wp-block-post-template-is-layout-grid.columns-3 {
+	.hapag-query-grid .wp-block-post-template-is-layout-grid.columns-3,
+	.hapag-query-grid.is-style-related .wp-block-post-template.is-layout-grid,
+	.hapag-query-grid.is-style-related .wp-block-post-template-is-layout-grid.columns-2 {
 		grid-template-columns: minmax(0, 1fr);
 	}
 
