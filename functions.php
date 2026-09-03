@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.25' );
+define( 'HAPAG_VERSION', '0.1.27' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -569,6 +569,26 @@ function hapag_render_site_copyright( $content, $block ) {
 	return '<p class="hapag-site-copyright">' . esc_html( $label ) . '</p>';
 }
 add_filter( 'render_block_core/paragraph', 'hapag_render_site_copyright', 10, 2 );
+
+/**
+ * Prints the site tagline in the footer, with the pattern copy as a fallback.
+ *
+ * @param string $content Block HTML.
+ * @param array  $block   Parsed block.
+ */
+function hapag_render_footer_tagline( $content, $block ) {
+	if ( ! hapag_block_has_class( $block, 'hapag-footer-tagline' ) ) {
+		return $content;
+	}
+
+	$tagline = trim( wp_strip_all_tags( get_bloginfo( 'description', 'display' ) ) );
+	if ( '' === $tagline ) {
+		$tagline = __( 'Food tastes better together.', 'hapag' );
+	}
+
+	return '<p class="wp-block-site-tagline hapag-footer-tagline">' . esc_html( $tagline ) . '</p>';
+}
+add_filter( 'render_block_core/site-tagline', 'hapag_render_footer_tagline', 10, 2 );
 
 /**
  * Adds front-end ARIA that Gutenberg’s save markup cannot store.
