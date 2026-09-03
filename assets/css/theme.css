@@ -38,11 +38,34 @@
 
 .hapag-header {
 	min-height: 84px;
+	flex-wrap: nowrap;
 	align-items: center;
 	padding-left: 4vw;
 	padding-right: 4vw;
 	border-bottom: 1px solid var(--wp--custom--line);
 	background: var(--wp--preset--color--cream);
+}
+
+.hapag-header .wp-block-site-title {
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.hapag-header .wp-block-site-title a {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.hapag-header-actions {
+	flex: 0 0 auto;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.hapag-header-actions .wp-block-buttons {
+	margin: 0;
 }
 
 .hapag-header .wp-block-site-title a::after {
@@ -596,6 +619,15 @@
 
 	.hapag-header {
 		min-height: 70px;
+	}
+
+	.hapag-header .wp-block-site-title {
+		font-size: clamp(1.15rem, 5vw, 1.6rem);
+	}
+
+	.wp-block-button.hapag-order-button .wp-block-button__link {
+		padding: 0.7rem 0.85rem;
+		font-size: 0.72rem;
 	}
 
 	.hapag-scroll-cue {
