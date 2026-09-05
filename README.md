@@ -84,6 +84,14 @@ and not:
 wp-hapag/
 ```
 
+Build that archive from the theme root:
+
+```bash
+php tools/zip.php
+```
+
+The script writes `dist/hapag-{version}.zip` and `dist/hapag.zip`. Both unzip to a `hapag/` folder. Prototypes (`HTML/`, `HTML2/`), git metadata, Impeccable files, docs, and the packager itself stay out of the zip.
+
 ## Theme Goals
 
 Hapag is built around a few core ideas:
