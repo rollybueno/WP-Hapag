@@ -1,10 +1,11 @@
 # Hapag theme documentation
 
-This directory records the implementation plan for converting the approved HTML prototype into a WordPress full-site editing theme.
+This directory records how the theme was built and what comes after 1.0.0.
 
 ## Documents
 
 - [Pattern inventory](patterns.md) — required block patterns, template mapping, dynamic content, and implementation order.
+- [Version plan](roadmap.md) — improvements planned for 1.0.x through 2.0.
 
 ## Prototype source
 
