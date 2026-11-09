@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '0.1.27' );
+define( 'HAPAG_VERSION', '1.0.0' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
@@ -284,55 +284,6 @@ function hapag_comment_form_fields( $fields ) {
 	return $fields;
 }
 add_filter( 'comment_form_default_fields', 'hapag_comment_form_fields' );
-
-/**
- * Collects recipe groups from the current post so they can render full-bleed.
- *
- * @return array<int, array>
- */
-function hapag_post_recipe_blocks() {
-	$post_id = get_the_ID();
-	if ( ! $post_id ) {
-		return array();
-	}
-
-	$recipes = array();
-	$walk    = static function ( $blocks ) use ( &$walk, &$recipes ) {
-		foreach ( $blocks as $block ) {
-			if ( hapag_block_has_class( $block, 'hapag-recipe' ) ) {
-				$recipes[] = $block;
-				continue;
-			}
-
-			if ( ! empty( $block['innerBlocks'] ) ) {
-				$walk( $block['innerBlocks'] );
-			}
-		}
-	};
-
-	$walk( parse_blocks( (string) get_post_field( 'post_content', $post_id ) ) );
-
-	return $recipes;
-}
-
-/**
- * Leaves the after-article slot empty when the post already has a Recipe block.
- * Posts without one still get the kit pattern so demo singles match the prototype.
- */
-function hapag_render_recipe_slot( $content, $block ) {
-	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
-	if ( ! $content || false === strpos( $class, 'hapag-recipe-slot' ) ) {
-		return $content;
-	}
-
-	if ( hapag_post_recipe_blocks() ) {
-		return '';
-	}
-
-	$fallback = do_blocks( '<!-- wp:pattern {"slug":"hapag/recipe"} /-->' );
-	return $fallback ? $fallback : $content;
-}
-add_filter( 'render_block_core/group', 'hapag_render_recipe_slot', 10, 2 );
 
 /**
  * Serializes post content with recipe groups removed.

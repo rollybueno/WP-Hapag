@@ -1,6 +1,6 @@
 # Hapag
 
-**Hapag** is a Filipino-inspired WordPress block theme designed for recipes, food creators, small businesses, and WooCommerce shops.
+**Hapag** is a Filipino-inspired WordPress block theme designed for recipes, food creators, and small shops.
 
 The theme takes its name from the Filipino word **hapag**, referring to the dining table — a place for food, sharing, and gathering.
 
@@ -101,7 +101,6 @@ Hapag is built around a few core ideas:
 * Minimal reliance on custom CSS
 * No inline styling
 * Recipe and editorial-friendly layouts
-* WooCommerce support
 * Accessible and responsive design
 * Clean, warm, and food-focused visual language
 * Patterns suitable for recipes, products, food makers, and small shops
@@ -129,7 +128,6 @@ git remote -v
 
 * WordPress 6.6 or later
 * PHP 7.4 or later
-* WooCommerce recommended for shop functionality
 
 ## License
 

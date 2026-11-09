@@ -7,10 +7,8 @@
  * Inserter: false
  * Description: Template-only rail beside Post Content. Do not insert into a page or post — it already wraps Post Content.
  */
-$hapag_headings  = hapag_post_heading_links();
-$hapag_permalink = get_permalink();
-$hapag_share     = $hapag_permalink ? rawurlencode( $hapag_permalink ) : '';
-$hapag_is_page   = hapag_is_page_context();
+$hapag_headings   = hapag_post_heading_links();
+$hapag_is_page    = hapag_is_page_context();
 $hapag_rail_style = $hapag_is_page ? 'is-style-page' : 'is-style-article';
 $hapag_rail_label = $hapag_is_page
 	? __( 'On this page', 'hapag' )
@@ -29,30 +27,6 @@ $hapag_rail_label = $hapag_is_page
 			<p class="hapag-rail-link"><a href="<?php echo esc_url( '#' . $hapag_heading['anchor'] ); ?>"><?php echo esc_html( $hapag_heading['text'] ); ?></a></p>
 			<!-- /wp:paragraph -->
 		<?php endforeach; ?>
-
-		<?php if ( ! $hapag_is_page ) : ?>
-		<!-- wp:group {"className":"hapag-share-links","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-		<div class="wp-block-group hapag-share-links">
-			<!-- wp:paragraph -->
-			<p><?php esc_html_e( 'Share', 'hapag' ); ?></p>
-			<!-- /wp:paragraph -->
-
-			<?php if ( $hapag_share ) : ?>
-				<!-- wp:paragraph -->
-				<p><a href="#"><?php esc_html_e( 'IG', 'hapag' ); ?></a></p>
-				<!-- /wp:paragraph -->
-
-				<!-- wp:paragraph -->
-				<p><a href="<?php echo esc_url( 'https://www.facebook.com/sharer/sharer.php?u=' . $hapag_share ); ?>"><?php esc_html_e( 'FB', 'hapag' ); ?></a></p>
-				<!-- /wp:paragraph -->
-
-				<!-- wp:paragraph -->
-				<p><a href="<?php echo esc_url( $hapag_permalink ); ?>"><?php echo esc_html_x( '↗', 'Share permalink', 'hapag' ); ?></a></p>
-				<!-- /wp:paragraph -->
-			<?php endif; ?>
-		</div>
-		<!-- /wp:group -->
-		<?php endif; ?>
 	</aside>
 	<!-- /wp:group -->
 
