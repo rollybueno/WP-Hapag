@@ -3,7 +3,7 @@ Contributors: rollybueno
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,12 @@ The theme is built for Full Site Editing with a theme.json-first design system: 
 The GitHub repository is named wp-hapag. The WordPress theme directory must remain hapag.
 
 == Changelog ==
+
+= 1.0.1 =
+* Support the custom logo and threaded comments named in the theme tags.
+* Leave README.md and credits.txt out of the theme package. Credits stay in this file.
+* Remove the custom pattern-cache flush. WordPress already clears that cache when the theme version changes.
+* Point order links at # instead of example.com.
 
 = 1.0.0 =
 * First version release.

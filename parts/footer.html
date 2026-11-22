@@ -4,7 +4,13 @@
 	<div class="wp-block-group hapag-footer-top">
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
 		<div class="wp-block-group">
-			<!-- wp:site-title {"level":0,"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white"} /-->
+			<!-- wp:group {"className":"hapag-brand","style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+			<div class="wp-block-group hapag-brand">
+				<!-- wp:site-logo {"width":48,"shouldSyncIcon":false} /-->
+
+				<!-- wp:site-title {"level":0,"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"textColor":"white"} /-->
+			</div>
+			<!-- /wp:group -->
 
 			<!-- wp:site-tagline {"className":"hapag-footer-tagline"} /-->
 		</div>
@@ -43,7 +49,7 @@
 		<!-- /wp:group -->
 
 		<!-- wp:paragraph {"className":"hapag-footer-order"} -->
-		<p class="hapag-footer-order"><a href="https://example.com">Feeling hungry?<br><strong>Order now ↗</strong></a></p>
+		<p class="hapag-footer-order"><a href="#">Feeling hungry?<br><strong>Order now ↗</strong></a></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

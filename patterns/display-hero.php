@@ -28,7 +28,7 @@
 		<!-- /wp:button -->
 
 		<!-- wp:button {"className":"hapag-text-link"} -->
-		<div class="wp-block-button hapag-text-link"><a class="wp-block-button__link wp-element-button" href="https://example.com"><?php esc_html_e( 'Order for pickup ↗', 'hapag' ); ?></a></div>
+		<div class="wp-block-button hapag-text-link"><a class="wp-block-button__link wp-element-button" href="#"><?php esc_html_e( 'Order for pickup ↗', 'hapag' ); ?></a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->

@@ -90,7 +90,7 @@ Build that archive from the theme root:
 php tools/zip.php
 ```
 
-The script writes `dist/hapag-{version}.zip` and `dist/hapag.zip`. Both unzip to a `hapag/` folder. Prototypes (`HTML/`, `HTML2/`), git metadata, Impeccable files, docs, and the packager itself stay out of the zip.
+The script writes `dist/hapag-{version}.zip` and `dist/hapag.zip`. Both unzip to a `hapag/` folder. Prototypes (`HTML/`, `HTML2/`), git metadata, Impeccable files, docs, the packager, `README.md`, and `credits.txt` stay out of the zip. Font and photo credits ship in `readme.txt`.
 
 ## Theme Goals
 

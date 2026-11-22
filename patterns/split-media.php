@@ -29,7 +29,7 @@ $hapag_cover_src = esc_url( $hapag_uri . '/assets/images/mexican-tacos.jpg' );
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"hapag-button-yellow"} -->
-			<div class="wp-block-button hapag-button-yellow"><a class="wp-block-button__link wp-element-button" href="https://example.com"><?php esc_html_e( 'Order on our partner site ↗', 'hapag' ); ?></a></div>
+			<div class="wp-block-button hapag-button-yellow"><a class="wp-block-button__link wp-element-button" href="#"><?php esc_html_e( 'Order on our partner site ↗', 'hapag' ); ?></a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

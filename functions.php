@@ -9,13 +9,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HAPAG_VERSION', '1.0.0' );
+define( 'HAPAG_VERSION', '1.0.1' );
 
 /**
  * Sets up theme defaults and registers support for WordPress features.
  */
 function hapag_setup() {
 	load_theme_textdomain( 'hapag', get_template_directory() . '/languages' );
+
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 80,
+			'width'       => 80,
+			'flex-height' => true,
+			'flex-width'  => true,
+		)
+	);
+
 	add_editor_style( 'assets/css/theme.css' );
 }
 add_action( 'after_setup_theme', 'hapag_setup' );
@@ -34,28 +45,6 @@ function hapag_register_pattern_category() {
 add_action( 'init', 'hapag_register_pattern_category', 9 );
 
 /**
- * Drops a stale theme pattern file cache when new pattern files appear.
- *
- * WordPress 6.6+ caches pattern headers in a site transient. Adding files
- * during development will not register them until that cache is cleared.
- */
-function hapag_maybe_flush_pattern_cache() {
-	$theme = wp_get_theme();
-	$files = glob( get_template_directory() . '/patterns/*.php' );
-	$files = is_array( $files ) ? $files : array();
-	$cached = $theme->get_block_patterns();
-	$stamp  = get_option( 'hapag_pattern_cache_version' );
-
-	if ( $stamp === HAPAG_VERSION && count( $cached ) >= count( $files ) ) {
-		return;
-	}
-
-	$theme->delete_pattern_cache();
-	update_option( 'hapag_pattern_cache_version', HAPAG_VERSION );
-}
-add_action( 'init', 'hapag_maybe_flush_pattern_cache', 0 );
-
-/**
  * Enqueues the thin layout stylesheet for compositions theme.json cannot express.
  */
 function hapag_enqueue_styles() {
@@ -67,6 +56,19 @@ function hapag_enqueue_styles() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'hapag_enqueue_styles' );
+
+/**
+ * Loads the threaded comment reply script on singular views.
+ *
+ * The Comments block prints nested replies when Discussion → Enable threaded
+ * comments is on. This enqueue is what moves the form under the reply link.
+ */
+function hapag_enqueue_comment_reply() {
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'hapag_enqueue_comment_reply' );
 
 /**
  * Adds an optional cook-time pill on query-grid card media.

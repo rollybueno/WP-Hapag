@@ -27,7 +27,7 @@ $hapag_recipes = $hapag_recipes ? $hapag_recipes : home_url( '/' );
 		<!-- /wp:button -->
 
 		<!-- wp:button {"className":"hapag-button-outline is-style-outline"} -->
-		<div class="wp-block-button hapag-button-outline is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://example.com"><?php esc_html_e( 'Order online ↗', 'hapag' ); ?></a></div>
+		<div class="wp-block-button hapag-button-outline is-style-outline"><a class="wp-block-button__link wp-element-button" href="#"><?php esc_html_e( 'Order online ↗', 'hapag' ); ?></a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->

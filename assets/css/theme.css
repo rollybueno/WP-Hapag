@@ -58,11 +58,33 @@
 	background: var(--wp--preset--color--cream);
 }
 
+.hapag-header .hapag-brand {
+	min-width: 0;
+	flex: 1 1 auto;
+}
+
+.hapag-header .wp-block-site-logo,
+.hapag-footer .wp-block-site-logo {
+	flex: 0 0 auto;
+	line-height: 0;
+}
+
+.hapag-header .wp-block-site-logo img,
+.hapag-footer .wp-block-site-logo img {
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+}
+
+.hapag-footer .wp-block-site-logo img {
+	width: 48px;
+	height: 48px;
+}
+
 .hapag-header .wp-block-site-title {
 	display: flex;
 	align-items: center;
 	min-width: 0;
-	flex: 1 1 auto;
 }
 
 .hapag-header .wp-block-site-title a {
@@ -1266,6 +1288,12 @@
 	list-style: none;
 	padding: 0;
 	margin: 0;
+}
+
+.hapag-comments .wp-block-comment-template li > ol {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 clamp(1rem, 4vw, 2.75rem);
 }
 
 .hapag-comment {

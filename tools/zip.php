@@ -40,18 +40,48 @@ $skip_roots = array(
 	'vendor',
 );
 
-$skip_names = array(
-	'.DS_Store',
-	'Thumbs.db',
-	'desktop.ini',
-	'__MACOSX',
+/*
+ * Developer notes. readme.txt is the directory readme and already carries
+ * the font and photo credits. These two files are not theme package files.
+ */
+$skip_basenames = array(
+	'readme.md',
+	'credits.txt',
 );
 
-$skip_extensions = array(
+/*
+ * Names and extensions blocked by the theme directory required review.
+ * https://make.wordpress.org/themes/handbook/review/required/#files
+ * XML is blocked except wpml-config.xml, loco.xml, and phpcs.xml.
+ */
+$blocked_basenames = array(
+	'thumbs.db',
+	'desktop.ini',
+	'project.properties',
+	'project.xml',
+	'php.ini',
+	'dwsync.xml',
+	'error_log',
+	'web.config',
+	'favicon.ico',
+	'.ds_store',
+	'__macosx',
+);
+
+$blocked_extensions = array(
+	'dat',
 	'log',
 	'sh',
 	'sql',
+	'wie',
+	'xml',
 	'zip',
+);
+
+$allowed_xml = array(
+	'wpml-config.xml',
+	'loco.xml',
+	'phpcs.xml',
 );
 
 /**
@@ -59,9 +89,13 @@ $skip_extensions = array(
  *
  * @param string $relative Path using forward slashes.
  */
-function hapag_zip_skip( $relative, $skip_roots, $skip_names, $skip_extensions ) {
+function hapag_zip_skip( $relative, $skip_roots, $skip_basenames, $blocked_basenames, $blocked_extensions, $allowed_xml ) {
 	$parts = explode( '/', $relative );
 	if ( in_array( $parts[0], $skip_roots, true ) ) {
+		return true;
+	}
+
+	if ( in_array( strtolower( basename( $relative ) ), $skip_basenames, true ) ) {
 		return true;
 	}
 
@@ -69,10 +103,11 @@ function hapag_zip_skip( $relative, $skip_roots, $skip_names, $skip_extensions )
 		if ( '' === $part ) {
 			continue;
 		}
+		// Hidden files and folders, including .git, .svn, .kpf, and .lubith.
 		if ( isset( $part[0] ) && '.' === $part[0] ) {
 			return true;
 		}
-		if ( in_array( $part, $skip_names, true ) ) {
+		if ( in_array( strtolower( $part ), $blocked_basenames, true ) ) {
 			return true;
 		}
 	}
@@ -82,8 +117,13 @@ function hapag_zip_skip( $relative, $skip_roots, $skip_names, $skip_extensions )
 		return true;
 	}
 
+	$base_lower = strtolower( $base );
+	if ( in_array( $base_lower, $allowed_xml, true ) ) {
+		return false;
+	}
+
 	$ext = strtolower( (string) pathinfo( $relative, PATHINFO_EXTENSION ) );
-	return in_array( $ext, $skip_extensions, true );
+	return in_array( $ext, $blocked_extensions, true );
 }
 
 $files = array();
@@ -99,7 +139,7 @@ foreach ( $iterator as $file ) {
 	$relative = substr( $file->getPathname(), strlen( $root ) + 1 );
 	$relative = str_replace( DIRECTORY_SEPARATOR, '/', $relative );
 
-	if ( hapag_zip_skip( $relative, $skip_roots, $skip_names, $skip_extensions ) ) {
+	if ( hapag_zip_skip( $relative, $skip_roots, $skip_basenames, $blocked_basenames, $blocked_extensions, $allowed_xml ) ) {
 		continue;
 	}
 
