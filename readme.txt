@@ -26,7 +26,7 @@ The GitHub repository is named wp-hapag. The WordPress theme directory must rema
 == Changelog ==
 
 = 1.0.1 =
-* Support the custom logo and threaded comments named in the theme tags.
+* Support the custom logo named in the theme tags, and list block patterns instead of threaded comments.
 * Leave README.md and credits.txt out of the theme package. Credits stay in this file.
 * Remove the custom pattern-cache flush. WordPress already clears that cache when the theme version changes.
 * Point order links at # instead of example.com.
